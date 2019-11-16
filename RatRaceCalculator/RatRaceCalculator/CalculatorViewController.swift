@@ -23,6 +23,40 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var clothesCostsLabel: UILabel!
     @IBOutlet weak var travelCostsLabel: UILabel!
     @IBOutlet weak var phoneCostsLabel: UILabel!
+    @IBOutlet weak var apartmentCostsLabel: UILabel!
+    @IBOutlet weak var carCostsLabel: UILabel!
+    @IBOutlet weak var houseCostsLabel: UILabel!
+    @IBOutlet weak var yachtCostsLabel: UILabel!
+    @IBOutlet weak var aircraftCostsLabel: UILabel!
+    @IBOutlet weak var childrenCostsLabel: UILabel!
+    @IBAction func cancelLastActionButton(_ sender: UIButton) {
+    }
+    @IBAction func payButton(_ sender: UIButton) {
+        wallet += cashflow
+        updateUI()
+    }
+    @IBAction func randomIncomeButton(_ sender: UIButton) {
+    }
+    @IBAction func unexpectedExpesesButton(_ sender: UIButton) {
+    }
+    @IBAction func buyBusinessButton(_ sender: UIButton) {
+    }
+    @IBAction func improveBusinessButton(_ sender: UIButton) {
+    }
+    @IBAction func investmentsButton(_ sender: UIButton) {
+    }
+    @IBAction func largePurchasesButton(_ sender: UIButton) {
+    }
+    @IBAction func marriageDivorceButton(_ sender: UIButton) {
+    }
+    @IBAction func childButton(_ sender: UIButton) {
+    }
+    @IBAction func firedButton(_ sender: UIButton) {
+    }
+    @IBAction func bankruptButton(_ sender: UIButton) {
+    }
+    
+    
     
     
     var income: Int = 0
@@ -41,31 +75,38 @@ class CalculatorViewController: UIViewController {
         } else {
             genderPlayerLabel.text = "Пол: Женский"
         }
+        cashflow = income - consumption
         updateUI()
     }
     
     func updateUI() {
         
-        income = player.salary
+        income = player.salary // + passive
         consumption = player.rentalCosts + player.foodCosts + player.clothesCosts + player.clothesCosts + player.travelCosts + player.phoneCosts
-        cashflow = income - consumption
         
         incomeLabel.text = "Общий доход: \(income)$"
         consumptionLabel.text = "Общий расход: \(consumption)$"
         cashflowLabel.text = "Cashflow: \(cashflow)$"
-        walletLabel.text = "Баланс: \(wallet)$"
+        walletLabel.text = "На счету: \(wallet)$"
+        //суммарная стоимость активов
         salaryLabel.text = "Зарплата: \(player.salary)$"
-        rentalCostsLabel.text = "Аренда жилья:  \(player.rentalCosts)$"
-        foodCostsLabel.text = "Расходы на питание:\(player.foodCosts)$"
-        clothesCostsLabel.text = "Расходы на одежду: \(player.clothesCosts)$"
-        travelCostsLabel.text = "Расходы на проезд:  \(player.travelCosts)$"
-        phoneCostsLabel.text = "Расходы на телефонные переговоры: \(player.phoneCosts)$"
+        rentalCostsLabel.text = "\(player.rentalCosts)$"
+        foodCostsLabel.text = "\(player.foodCosts)$"
+        clothesCostsLabel.text = "\(player.clothesCosts)$"
+        travelCostsLabel.text = "\(player.travelCosts)$"
+        phoneCostsLabel.text = "\(player.phoneCosts)$"
+        childrenCostsLabel.text = "\(player.childrenCosts)$"
+        apartmentCostsLabel.text = "\(player.apartmentCosts)$"
+        carCostsLabel.text = "\(player.carCosts)$"
+        houseCostsLabel.text = "\(player.houseCosts)$"
+        yachtCostsLabel.text = "\(player.yachtCosts)$"
+        aircraftCostsLabel.text = "\(player.aircraftCosts)$"
     }
 
     var player: Player {
         let name = "Bob"
         let gender = playerGender.male
-        let profession = "storekeeper"
+        let profession = "Кладовщик"
         
         let salary = 500
         
