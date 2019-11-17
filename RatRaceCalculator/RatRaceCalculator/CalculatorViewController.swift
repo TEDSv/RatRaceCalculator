@@ -5,11 +5,12 @@
 //  Created by Admin on 11.11.2019.
 //  Copyright © 2019 TED. All rights reserved.
 //
-
+// MARK: - START
 import UIKit
 
-class CalculatorViewController: UIViewController {
-
+class CalculatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+// MARK: - @IBoutlet
     @IBOutlet weak var namePlayerLabel: UILabel!
     @IBOutlet weak var genderPlayerLabel: UILabel!
     @IBOutlet weak var professionPlayerLabel: UILabel!
@@ -17,6 +18,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var consumptionLabel: UILabel!
     @IBOutlet weak var cashflowLabel: UILabel!
     @IBOutlet weak var salaryLabel: UILabel!
+    @IBOutlet weak var passiveIncomeLabel: UILabel!
     @IBOutlet weak var walletLabel: UILabel!
     @IBOutlet weak var rentalCostsLabel: UILabel!
     @IBOutlet weak var foodCostsLabel: UILabel!
@@ -29,42 +31,68 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var yachtCostsLabel: UILabel!
     @IBOutlet weak var aircraftCostsLabel: UILabel!
     @IBOutlet weak var childrenCostsLabel: UILabel!
-    @IBAction func cancelLastActionButton(_ sender: UIButton) {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var payButton: UIButton!
+    @IBOutlet weak var randomIncomeButton: UIButton!
+    @IBOutlet weak var unexpectedExpesesButton: UIButton!
+    @IBOutlet weak var buyBusinessButton: UIButton!
+    @IBOutlet weak var improveBusinessButton: UIButton!
+    @IBOutlet weak var investmentsButton: UIButton!
+    @IBOutlet weak var largePurchasesButton: UIButton!
+    @IBOutlet weak var marriageDivorceButton: UIButton!
+    @IBOutlet weak var childButton: UIButton!
+    @IBOutlet weak var firedButton: UIButton!
+    @IBOutlet weak var bankruptButton: UIButton!
+    
+// MARK: - @IBAction
+    @IBAction func cancelLastActionButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func payButton(_ sender: UIButton) {
+    @IBAction func payButtonTapped(_ sender: UIButton) {
         wallet += cashflow
         updateUI()
     }
-    @IBAction func randomIncomeButton(_ sender: UIButton) {
+    @IBAction func randomIncomeButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func unexpectedExpesesButton(_ sender: UIButton) {
+    @IBAction func unexpectedExpesesButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func buyBusinessButton(_ sender: UIButton) {
+    @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func improveBusinessButton(_ sender: UIButton) {
+    @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func investmentsButton(_ sender: UIButton) {
+    @IBAction func investmentsButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func largePurchasesButton(_ sender: UIButton) {
+    @IBAction func largePurchasesButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func marriageDivorceButton(_ sender: UIButton) {
+    @IBAction func marriageDivorceButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func childButton(_ sender: UIButton) {
+    @IBAction func childButtonTapped(_ sender: UIButton) {
+        if player.familyStatus == false {
+            player.familyStatus = true
+        } else {
+            player.familyStatus = false
+        }
+        updateUI()
     }
-    @IBAction func firedButton(_ sender: UIButton) {
+    @IBAction func firedButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func bankruptButton(_ sender: UIButton) {
+    @IBAction func bankruptButtonTapped(_ sender: UIButton) {
     }
     
     
     
+// MARK: - Variables and Constants
     
     var income: Int = 0
+    var passiveIncome: Int = 0
     var consumption: Int = 0
     var cashflow: Int = 0
     var wallet: Int = 0
 
     
+// MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,21 +103,23 @@ class CalculatorViewController: UIViewController {
         } else {
             genderPlayerLabel.text = "Пол: Женский"
         }
-        cashflow = income - consumption
         updateUI()
     }
     
+// MARK: - Functions
     func updateUI() {
         
         income = player.salary // + passive
         consumption = player.rentalCosts + player.foodCosts + player.clothesCosts + player.clothesCosts + player.travelCosts + player.phoneCosts
+        cashflow = income - consumption
         
-        incomeLabel.text = "Общий доход: \(income)$"
-        consumptionLabel.text = "Общий расход: \(consumption)$"
-        cashflowLabel.text = "Cashflow: \(cashflow)$"
-        walletLabel.text = "На счету: \(wallet)$"
+        incomeLabel.text = "\(income)$"
+        consumptionLabel.text = "\(consumption)$"
+        cashflowLabel.text = "\(cashflow)$"
+        walletLabel.text = "\(wallet)$"
         //суммарная стоимость активов
-        salaryLabel.text = "Зарплата: \(player.salary)$"
+        salaryLabel.text = "\(player.salary)$"
+        passiveIncomeLabel.text = "\(passiveIncome)"
         rentalCostsLabel.text = "\(player.rentalCosts)$"
         foodCostsLabel.text = "\(player.foodCosts)$"
         clothesCostsLabel.text = "\(player.clothesCosts)$"
@@ -101,8 +131,15 @@ class CalculatorViewController: UIViewController {
         houseCostsLabel.text = "\(player.houseCosts)$"
         yachtCostsLabel.text = "\(player.yachtCosts)$"
         aircraftCostsLabel.text = "\(player.aircraftCosts)$"
+        
+        if player.familyStatus == false {
+            marriageDivorceButton.setTitle("Свадьба", for: .normal)
+        } else {
+            marriageDivorceButton.setTitle("Развод", for: .normal)
+        }
     }
 
+// MARK: - Player
     var player: Player {
         let name = "Bob"
         let gender = playerGender.male
@@ -122,6 +159,8 @@ class CalculatorViewController: UIViewController {
         var yachtCosts = 0
         var aircraftCosts = 0
         
+        var familyStatus = false
+        
         return Player(name: name,
                       gender: gender,
                       profession: profession,
@@ -136,11 +175,70 @@ class CalculatorViewController: UIViewController {
                       carCosts: carCosts,
                       houseCosts: houseCosts,
                       yachtCosts: yachtCosts,
-                      aircraftCosts: aircraftCosts )
+                      aircraftCosts: aircraftCosts,
+                      familyStatus: familyStatus)
     }
     
 
+     
+
     
+// MARK: - Table view data source
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
     
+// MARK: - END
 }
 

@@ -15,23 +15,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-JH-4OQ">
-                                <rect key="frame" x="40" y="70" width="688" height="20.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-JH-4OQ">
+                                <rect key="frame" x="40" y="70" width="93" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя игрока" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgQ-jq-pgk">
-                                        <rect key="frame" x="0.0" y="0.0" width="229.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пол" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yya-PK-83t">
-                                        <rect key="frame" x="229.5" y="0.0" width="229" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="93" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Профессия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-h0-0ii">
-                                        <rect key="frame" x="458.5" y="0.0" width="229.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="41" width="93" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-o6-YLb">
+                                <rect key="frame" x="40" y="139.5" width="147" height="123"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зарплата:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGn-3G-s2m">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пассивный доход:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9I-Vm-VcY">
+                                        <rect key="frame" x="0.0" y="20.5" width="147" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общий доход:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXj-ab-P36">
+                                        <rect key="frame" x="0.0" y="41" width="147" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общий расход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMU-Ck-eFk">
+                                        <rect key="frame" x="0.0" y="61.5" width="147" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cashflow:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpK-ZA-zw7">
+                                        <rect key="frame" x="0.0" y="82" width="147" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На счету:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEi-9d-3Yh">
+                                        <rect key="frame" x="0.0" y="102.5" width="147" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -39,164 +80,112 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mg3-wd-fvk">
-                                <rect key="frame" x="20" y="98.5" width="118" height="102.5"/>
+                                <rect key="frame" x="197" y="139.5" width="21" height="123"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общий доход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwD-Jx-fuS">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxD-WE-rig">
+                                        <rect key="frame" x="0.0" y="0.0" width="21" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общий расход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsC-Ap-pnT">
-                                        <rect key="frame" x="0.0" y="20.5" width="118" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-Hk-Wsi">
+                                        <rect key="frame" x="0.0" y="20.5" width="21" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cashflow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-IM-XLV">
-                                        <rect key="frame" x="0.0" y="41" width="118" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwD-Jx-fuS">
+                                        <rect key="frame" x="0.0" y="41" width="21" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зарплата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxD-WE-rig">
-                                        <rect key="frame" x="0.0" y="61.5" width="118" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsC-Ap-pnT">
+                                        <rect key="frame" x="0.0" y="61.5" width="21" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Баланс" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOj-yH-jtL">
-                                        <rect key="frame" x="0.0" y="82" width="118" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-IM-XLV">
+                                        <rect key="frame" x="0.0" y="82" width="21" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOj-yH-jtL">
+                                        <rect key="frame" x="0.0" y="102.5" width="21" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-rk-cgW">
-                                <rect key="frame" x="488" y="121" width="223" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Отменить последнее действие"/>
-                                <connections>
-                                    <action selector="cancelLastActionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VxH-io-Ofm"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Пассивные доходы:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkf-VW-8ZC">
-                                <rect key="frame" x="51" y="385" width="198" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Доходы от малого бизнеса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzy-T2-81C">
-                                <rect key="frame" x="51" y="443" width="217" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Доходы от среднего бизнеса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlx-3O-eMa">
-                                <rect key="frame" x="47" y="472" width="234" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Доходы от крупного бизнеса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eK-kK-qpk">
-                                <rect key="frame" x="47" y="502" width="233" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7K-b2-gv7">
-                                <rect key="frame" x="64" y="208" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Получка!"/>
-                                <connections>
-                                    <action selector="payButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9Q-5u-E37"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-XR-ClL">
-                                <rect key="frame" x="323" y="284" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Увольнение"/>
-                                <connections>
-                                    <action selector="firedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hDn-Ej-nIk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-hW-q7W">
-                                <rect key="frame" x="436" y="284" width="91" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Банкротство"/>
-                                <connections>
-                                    <action selector="bankruptButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uY0-2l-bEo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-r6-WmO">
-                                <rect key="frame" x="164" y="208" width="127" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Случайный доход"/>
-                                <connections>
-                                    <action selector="randomIncomeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dxJ-fi-WeI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-0s-cKA">
-                                <rect key="frame" x="363" y="208" width="191" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Непредвиденные расходы"/>
-                                <connections>
-                                    <action selector="unexpectedExpesesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SMl-y3-xsD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-2Y-kWr">
-                                <rect key="frame" x="45" y="246" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Покупка бизнеса"/>
-                                <connections>
-                                    <action selector="buyBusinessButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UKc-rL-ufN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQf-61-h29">
-                                <rect key="frame" x="341" y="246" width="87" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Инвестиции"/>
-                                <connections>
-                                    <action selector="investmentsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Pd-rL-Cwh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-HD-s4X">
-                                <rect key="frame" x="439" y="246" width="126" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Крупные покупки"/>
-                                <connections>
-                                    <action selector="largePurchasesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="acc-Mc-zzf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-LW-0jx">
-                                <rect key="frame" x="37" y="284" width="91" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Брак/Развод"/>
-                                <connections>
-                                    <action selector="marriageDivorceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xj9-Co-ncs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-HX-4gx">
-                                <rect key="frame" x="165" y="284" width="137" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Рождение ребенка"/>
-                                <connections>
-                                    <action selector="childButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rij-W9-aAN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-db-qZf">
-                                <rect key="frame" x="176" y="246" width="143" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Улучшение бизнеса"/>
-                                <connections>
-                                    <action selector="improveBusinessButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oMw-7F-TKT"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EMs-Nx-rG2">
+                                <rect key="frame" x="193" y="282.5" width="191" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-r6-WmO">
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                                        <state key="normal" title="Случайный доход"/>
+                                        <connections>
+                                            <action selector="randomIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hnJ-oE-TUM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-HX-4gx">
+                                        <rect key="frame" x="0.0" y="30" width="137" height="30"/>
+                                        <state key="normal" title="Рождение ребенка"/>
+                                        <connections>
+                                            <action selector="childButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Exl-bl-Qfi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-db-qZf">
+                                        <rect key="frame" x="0.0" y="60" width="143" height="30"/>
+                                        <state key="normal" title="Улучшение бизнеса"/>
+                                        <connections>
+                                            <action selector="improveBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HDC-k4-JpM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-0s-cKA">
+                                        <rect key="frame" x="0.0" y="90" width="191" height="30"/>
+                                        <state key="normal" title="Непредвиденные расходы"/>
+                                        <connections>
+                                            <action selector="unexpectedExpesesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLv-nz-FV9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="wyv-aQ-WwC">
+                                <rect key="frame" x="414" y="282.5" width="126" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-rk-cgW">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
+                                        <state key="normal" title="Отменить"/>
+                                        <connections>
+                                            <action selector="cancelLastActionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o33-xB-JRI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-HD-s4X">
+                                        <rect key="frame" x="0.0" y="30" width="126" height="30"/>
+                                        <state key="normal" title="Крупные покупки"/>
+                                        <connections>
+                                            <action selector="largePurchasesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mev-lY-sKU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQf-61-h29">
+                                        <rect key="frame" x="0.0" y="60" width="87" height="30"/>
+                                        <state key="normal" title="Инвестиции"/>
+                                        <connections>
+                                            <action selector="investmentsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smk-Q6-rr8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-hW-q7W">
+                                        <rect key="frame" x="0.0" y="90" width="91" height="30"/>
+                                        <state key="normal" title="Банкротство"/>
+                                        <connections>
+                                            <action selector="bankruptButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxx-Nq-eQq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-Ba-1ZE">
                                 <rect key="frame" x="40" y="877.5" width="169" height="126.5"/>
                                 <subviews>
@@ -355,8 +344,36 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Пассивные доходы:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkf-VW-8ZC">
+                                <rect key="frame" x="34" y="478" width="198" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Доходы от малого бизнеса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzy-T2-81C">
+                                <rect key="frame" x="34" y="504" width="217" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Доходы от среднего бизнеса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlx-3O-eMa">
+                                <rect key="frame" x="30" y="533" width="234" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Доходы от крупного бизнеса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eK-kK-qpk">
+                                <rect key="frame" x="30" y="563" width="233" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5PU-TC-i5M">
-                                <rect key="frame" x="37" y="531" width="265" height="201"/>
+                                <rect key="frame" x="20" y="592" width="265" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -370,21 +387,61 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tTv-u0-UQf">
+                                <rect key="frame" x="40" y="282.5" width="123" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7K-b2-gv7">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
+                                        <state key="normal" title="Получка!"/>
+                                        <connections>
+                                            <action selector="payButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qr7-9t-y4R"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-LW-0jx">
+                                        <rect key="frame" x="0.0" y="30" width="91" height="30"/>
+                                        <state key="normal" title="Брак/Развод"/>
+                                        <connections>
+                                            <action selector="marriageDivorceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dUT-ku-Jp6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-2Y-kWr">
+                                        <rect key="frame" x="0.0" y="60" width="123" height="30"/>
+                                        <state key="normal" title="Покупка бизнеса"/>
+                                        <connections>
+                                            <action selector="buyBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhK-jy-C4v"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-XR-ClL">
+                                        <rect key="frame" x="0.0" y="90" width="85" height="30"/>
+                                        <state key="normal" title="Увольнение"/>
+                                        <connections>
+                                            <action selector="firedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AN4-dK-YJ9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="EMs-Nx-rG2" firstAttribute="top" secondItem="tTv-u0-UQf" secondAttribute="top" id="3jq-7r-qeV"/>
+                            <constraint firstItem="mg3-wd-fvk" firstAttribute="top" secondItem="LBW-o6-YLb" secondAttribute="top" id="6Dd-O0-sdd"/>
                             <constraint firstItem="1hS-Dp-7Br" firstAttribute="bottom" secondItem="Rps-Ba-1ZE" secondAttribute="bottom" id="8s1-za-UB9"/>
                             <constraint firstItem="1hS-Dp-7Br" firstAttribute="leading" secondItem="Rps-Ba-1ZE" secondAttribute="trailing" constant="10" id="9qR-ag-Qi2"/>
                             <constraint firstItem="Gou-JH-4OQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="EaS-Ip-qc7"/>
+                            <constraint firstItem="tTv-u0-UQf" firstAttribute="top" secondItem="LBW-o6-YLb" secondAttribute="bottom" constant="20" id="IHc-Ig-CDD"/>
                             <constraint firstItem="xhb-3C-fci" firstAttribute="bottom" secondItem="WOR-nx-zdi" secondAttribute="bottom" id="IuQ-Ze-60L"/>
+                            <constraint firstItem="LBW-o6-YLb" firstAttribute="leading" secondItem="Gou-JH-4OQ" secondAttribute="leading" id="NqB-8s-1Rr"/>
+                            <constraint firstItem="LBW-o6-YLb" firstAttribute="top" secondItem="Gou-JH-4OQ" secondAttribute="bottom" constant="8" id="RSe-iF-DbY"/>
                             <constraint firstItem="Rps-Ba-1ZE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="TsB-0a-Y2O"/>
                             <constraint firstItem="WOR-nx-zdi" firstAttribute="leading" secondItem="1hS-Dp-7Br" secondAttribute="trailing" constant="40" id="Tuo-9W-Eyt"/>
+                            <constraint firstItem="mg3-wd-fvk" firstAttribute="leading" secondItem="LBW-o6-YLb" secondAttribute="trailing" constant="10" id="brx-nk-uGC"/>
+                            <constraint firstItem="EMs-Nx-rG2" firstAttribute="leading" secondItem="tTv-u0-UQf" secondAttribute="trailing" constant="30" id="c36-dv-Bu4"/>
                             <constraint firstItem="Gou-JH-4OQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ccW-ur-JVC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rps-Ba-1ZE" secondAttribute="bottom" constant="20" id="cgc-7m-UaK"/>
-                            <constraint firstItem="mg3-wd-fvk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cvl-np-weN"/>
-                            <constraint firstItem="mg3-wd-fvk" firstAttribute="top" secondItem="Gou-JH-4OQ" secondAttribute="bottom" constant="8" id="dRJ-Zg-s7p"/>
+                            <constraint firstItem="tTv-u0-UQf" firstAttribute="leading" secondItem="LBW-o6-YLb" secondAttribute="leading" id="jFN-Bl-S7C"/>
                             <constraint firstItem="xhb-3C-fci" firstAttribute="leading" secondItem="WOR-nx-zdi" secondAttribute="trailing" constant="10" id="lDb-lz-uas"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gou-JH-4OQ" secondAttribute="trailing" constant="40" id="xjd-q4-Yor"/>
+                            <constraint firstItem="wyv-aQ-WwC" firstAttribute="leading" secondItem="EMs-Nx-rG2" secondAttribute="trailing" constant="30" id="tXz-Lo-Nuo"/>
+                            <constraint firstItem="wyv-aQ-WwC" firstAttribute="top" secondItem="tTv-u0-UQf" secondAttribute="top" id="vEZ-yF-sRf"/>
                             <constraint firstItem="WOR-nx-zdi" firstAttribute="bottom" secondItem="Rps-Ba-1ZE" secondAttribute="bottom" id="zZA-Bo-3Sm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -393,21 +450,35 @@
                     <connections>
                         <outlet property="aircraftCostsLabel" destination="6Qj-oa-HaV" id="Lsc-up-wEO"/>
                         <outlet property="apartmentCostsLabel" destination="4zs-o0-afr" id="6nH-zY-dJU"/>
+                        <outlet property="bankruptButton" destination="MKM-hW-q7W" id="xVY-ju-78S"/>
+                        <outlet property="buyBusinessButton" destination="lBf-2Y-kWr" id="DBB-92-EZT"/>
+                        <outlet property="cancelButton" destination="Z6u-rk-cgW" id="A07-H7-us9"/>
                         <outlet property="carCostsLabel" destination="lzz-bM-BdV" id="aJn-8F-zzh"/>
                         <outlet property="cashflowLabel" destination="YIL-IM-XLV" id="K4y-V2-teB"/>
+                        <outlet property="childButton" destination="KCG-HX-4gx" id="xuX-cc-DTd"/>
                         <outlet property="childrenCostsLabel" destination="ODd-bw-QQH" id="1WO-wS-cNS"/>
                         <outlet property="clothesCostsLabel" destination="yn1-Bs-YJW" id="F9d-QR-vxV"/>
                         <outlet property="consumptionLabel" destination="fsC-Ap-pnT" id="shw-gI-AJm"/>
+                        <outlet property="firedButton" destination="Q3u-XR-ClL" id="VmS-VI-BLJ"/>
                         <outlet property="foodCostsLabel" destination="FUa-od-rYE" id="noW-gp-C6V"/>
                         <outlet property="genderPlayerLabel" destination="Yya-PK-83t" id="kZs-cf-zBJ"/>
                         <outlet property="houseCostsLabel" destination="YrT-ms-Lk8" id="lDf-V2-Jkd"/>
+                        <outlet property="improveBusinessButton" destination="Omm-db-qZf" id="ybD-Po-JlR"/>
                         <outlet property="incomeLabel" destination="mwD-Jx-fuS" id="DaY-eD-5CH"/>
+                        <outlet property="investmentsButton" destination="JQf-61-h29" id="fP6-jj-TgN"/>
+                        <outlet property="largePurchasesButton" destination="DJO-HD-s4X" id="lwf-en-IHP"/>
+                        <outlet property="marriageDivorceButton" destination="OD9-LW-0jx" id="RH4-zc-uXU"/>
                         <outlet property="namePlayerLabel" destination="RgQ-jq-pgk" id="gDR-lb-uI9"/>
+                        <outlet property="passiveIncomeLabel" destination="Srb-Hk-Wsi" id="fnX-Ro-LGm"/>
+                        <outlet property="payButton" destination="K7K-b2-gv7" id="Kt1-lM-g9q"/>
                         <outlet property="phoneCostsLabel" destination="xFo-ou-TMd" id="dj7-Ga-869"/>
                         <outlet property="professionPlayerLabel" destination="JHx-h0-0ii" id="8aN-LT-V1N"/>
+                        <outlet property="randomIncomeButton" destination="oq0-r6-WmO" id="avB-UJ-dNZ"/>
                         <outlet property="rentalCostsLabel" destination="cXn-AR-g4U" id="MMj-9L-kGQ"/>
                         <outlet property="salaryLabel" destination="pxD-WE-rig" id="bgr-SD-hyE"/>
+                        <outlet property="tableView" destination="5PU-TC-i5M" id="muW-pz-I97"/>
                         <outlet property="travelCostsLabel" destination="FjT-pF-wB8" id="Dzh-Hb-eHg"/>
+                        <outlet property="unexpectedExpesesButton" destination="7uh-0s-cKA" id="Af6-Sm-bUg"/>
                         <outlet property="walletLabel" destination="hOj-yH-jtL" id="KP4-Fa-KGn"/>
                         <outlet property="yachtCostsLabel" destination="MfY-4A-uXh" id="7uH-sE-5vI"/>
                     </connections>

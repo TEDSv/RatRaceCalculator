@@ -34,6 +34,7 @@ struct Player {
     var yachtCosts: Int
     var aircraftCosts: Int
     
+    var familyStatus: Bool
 //    let Costs = []
 }
 
