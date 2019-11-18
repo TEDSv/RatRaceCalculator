@@ -160,7 +160,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
                                         <state key="normal" title="Отменить"/>
                                         <connections>
-                                            <action selector="cancelLastActionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o33-xB-JRI"/>
+                                            <action selector="cancelLastActionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oND-qd-1dI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-HD-s4X">
@@ -377,7 +377,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HQZ-Jb-aRn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="businessCell" id="HQZ-Jb-aRn">
                                         <rect key="frame" x="0.0" y="28" width="265" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HQZ-Jb-aRn" id="Xgy-hf-Npc">
