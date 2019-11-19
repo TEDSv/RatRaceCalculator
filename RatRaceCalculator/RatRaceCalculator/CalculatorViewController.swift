@@ -32,6 +32,13 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var yachtCostsLabel: UILabel!
     @IBOutlet weak var aircraftCostsLabel: UILabel!
     @IBOutlet weak var childrenCostsLabel: UILabel!
+    @IBOutlet weak var carStatusLabel: UILabel!
+    @IBOutlet weak var appartmentStatusLabel: UILabel!
+    @IBOutlet weak var houseStatusLabel: UILabel!
+    @IBOutlet weak var yachtStatusLabel: UILabel!
+    @IBOutlet weak var aircraftStatusLabel: UILabel!
+    @IBOutlet weak var familyStatusLabel: UILabel!
+    @IBOutlet weak var childrenStatusLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,17 +56,26 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var bankruptButton: UIButton!
     
     // MARK: - Variables and Constants
-    var player = Player ()
+    var player = Player()
     var totalIncome: Int = 0
     var passiveIncome: Int = 0
     var consumption: Int = 0
     var cashflow: Int = 0
     var wallet: Int = 0
     var childrenCosts: Int = 0
-    var totalCountOfBusiness: Int = 0
     
-    var businessCost: Int = 600
-    var businessIncome: Int = 300
+    var unexpectedExpeses: Int = 200
+    var randomIncome: Int = 500
+    
+    var totalCountOfBusiness: [Business] = []
+    var business: Business {
+        var type = businessType.small
+        var price = 600
+        var income = 300
+        
+        return Business(type: type, price: price, income: income)
+    }
+    
         
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -88,19 +104,29 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func randomIncomeButtonTapped(_ sender: UIButton) {
+        
+        wallet += randomIncome
+        updateUI()
     }
     
     @IBAction func unexpectedExpesesButtonTapped(_ sender: UIButton) {
+        
+        wallet -= unexpectedExpeses
+        updateUI()
     }
     
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
-        totalCountOfBusiness += 1
+        totalCountOfBusiness.append(business)
         
+        tableView.reloadData()
         updateUI()
     }
     
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
         //перенести в таблицу?
+        
+        tableView.reloadData()
+        updateUI()
     }
     
     @IBAction func investmentsButtonTapped(_ sender: UIButton) {
@@ -141,7 +167,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func firedButtonTapped(_ sender: UIButton) {
         player.salary = 0
-        if totalCountOfBusiness > 0 {
+        if totalCountOfBusiness.count > 0 {
             if player.gender == playerGender.male {
                 player.profession = "Бизнесмен"
             } else {
@@ -158,8 +184,9 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func bankruptButtonTapped(_ sender: UIButton) {
-        totalCountOfBusiness -= 1
+        totalCountOfBusiness.removeLast()
         //пересчет стоимости всех бизнесов и дохода
+        tableView.reloadData()
         updateUI()
     }
 
@@ -222,14 +249,18 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return totalCountOfBusiness
+        return totalCountOfBusiness.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "businessCell", for: indexPath)
-
-        // Configure the cell...
-
+        let businessRecord = totalCountOfBusiness[indexPath.row]
+        cell.textLabel?.text = "Доходы:"
+        cell.detailTextLabel?.text = "\(businessRecord.income)$"
+        
+        //Доходы от малого бизнеса
+        //Доходы от среднего бизнеса
+        //Доходы от среднего бизнеса
         return cell
     }
 
