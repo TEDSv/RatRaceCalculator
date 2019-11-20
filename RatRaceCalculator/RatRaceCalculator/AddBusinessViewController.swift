@@ -11,7 +11,22 @@ import UIKit
 class AddBusinessViewController: UIViewController {
 
     
+    
+    @IBOutlet weak var typeBusinessControl: UISegmentedControl!
+    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var incomeTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+//    @IBOutlet weak var
+    
+    
+    var business: Business? {
+        let type = businessType.small
+        let price = Int(priceTextField.text ?? "0") ?? 0
+        let income = Int(incomeTextField.text ?? "0") ?? 0
+        
+        return Business(type: type, price: price, income: income)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +35,24 @@ class AddBusinessViewController: UIViewController {
     }
     
 
+    @IBAction func typeBusinessControlTapped(_ sender: UISegmentedControl) {
+        
+        let getIndex = typeBusinessControl.selectedSegmentIndex
+        
+        switch getIndex {
+        case 0:
+//            business.type =
+            businessType.small
+        case 1:
+            businessType.medium
+        case 2:
+            businessType.large
+        default:
+            print("nothing")
+        }
+    }
     
-    @IBAction func saveButtonPressed(_ sender: UIButton) {
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true)
     }
     

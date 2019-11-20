@@ -142,7 +142,7 @@
                                         <state key="normal" title="Покупка бизнеса"/>
                                         <connections>
                                             <action selector="buyBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhK-jy-C4v"/>
-                                            <segue destination="4aE-DC-F4y" kind="presentation" id="fc6-1x-QOr"/>
+                                            <segue destination="4aE-DC-F4y" kind="presentation" identifier="AddBusiness" id="fc6-1x-QOr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-XR-ClL">
@@ -633,37 +633,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J05-89-wNG">
-                                <rect key="frame" x="219" y="400" width="330" height="224"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J05-89-wNG">
+                                <rect key="frame" x="219" y="397" width="330" height="230"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popup label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zT-Xz-AeZ">
-                                        <rect key="frame" x="120" y="102" width="90" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип бизнеса:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zT-Xz-AeZ">
+                                        <rect key="frame" x="113" y="10" width="104.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDh-8s-LGq">
-                                        <rect key="frame" x="150" y="186" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MxH-GR-PUL">
+                                        <rect key="frame" x="0.0" y="38.5" width="330" height="32"/>
+                                        <segments>
+                                            <segment title="Малый"/>
+                                            <segment title="Средний"/>
+                                            <segment title="Крупный"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="typeBusinessControlTapped:" destination="4aE-DC-F4y" eventType="valueChanged" id="e5K-E7-dAd"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоимость" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeN-g7-awm">
+                                        <rect key="frame" x="50" y="94.5" width="87" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQs-0g-kEq">
+                                        <rect key="frame" x="230" y="94.5" width="50" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XxS-0R-w3I">
+                                        <rect key="frame" x="53.5" y="125" width="80" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Dug-qa-sgf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Snj-6T-xVA">
+                                        <rect key="frame" x="215" y="125" width="80" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="5vg-bT-GGx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x56-8O-DvE">
+                                        <rect key="frame" x="69.5" y="190" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="4aE-DC-F4y" eventType="touchUpInside" id="mKJ-IM-zX0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDh-8s-LGq">
+                                        <rect key="frame" x="240" y="190" width="30" height="30"/>
                                         <state key="normal" title="OK"/>
                                         <connections>
-                                            <action selector="saveButtonPressed:" destination="4aE-DC-F4y" eventType="touchUpInside" id="0ar-91-R7y"/>
+                                            <segue destination="cC9-qY-8up" kind="unwind" unwindAction="unwindFromAddBusinessWithUnwindSegue:" id="XNS-v5-ujc"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="BDh-8s-LGq" firstAttribute="centerX" secondItem="mQs-0g-kEq" secondAttribute="centerX" id="48x-vY-d9c"/>
+                                    <constraint firstItem="mQs-0g-kEq" firstAttribute="centerX" secondItem="Snj-6T-xVA" secondAttribute="centerX" id="4pC-RJ-Jwe"/>
+                                    <constraint firstItem="jeN-g7-awm" firstAttribute="leading" secondItem="J05-89-wNG" secondAttribute="leading" constant="50" id="98E-Xd-OWZ"/>
+                                    <constraint firstAttribute="height" constant="230" id="BvC-eS-iWg"/>
+                                    <constraint firstAttribute="width" constant="330" id="HPS-be-Fbc"/>
+                                    <constraint firstAttribute="trailing" secondItem="mQs-0g-kEq" secondAttribute="trailing" constant="50" id="KE0-UD-upn"/>
+                                    <constraint firstItem="5zT-Xz-AeZ" firstAttribute="top" secondItem="J05-89-wNG" secondAttribute="top" constant="10" id="MEI-vg-62w"/>
+                                    <constraint firstAttribute="bottom" secondItem="x56-8O-DvE" secondAttribute="bottom" constant="10" id="NYj-Vx-wZD"/>
+                                    <constraint firstItem="jeN-g7-awm" firstAttribute="top" secondItem="MxH-GR-PUL" secondAttribute="bottom" constant="25" id="PZi-As-j3F"/>
+                                    <constraint firstItem="x56-8O-DvE" firstAttribute="centerX" secondItem="jeN-g7-awm" secondAttribute="centerX" id="SXm-5L-RyZ"/>
+                                    <constraint firstItem="XxS-0R-w3I" firstAttribute="top" secondItem="jeN-g7-awm" secondAttribute="bottom" constant="10" id="U8v-PL-EQr"/>
+                                    <constraint firstItem="Snj-6T-xVA" firstAttribute="top" secondItem="mQs-0g-kEq" secondAttribute="bottom" constant="10" id="aJh-VF-g4L"/>
+                                    <constraint firstAttribute="bottom" secondItem="BDh-8s-LGq" secondAttribute="bottom" constant="10" id="c3o-U0-m9o"/>
+                                    <constraint firstItem="5zT-Xz-AeZ" firstAttribute="centerX" secondItem="J05-89-wNG" secondAttribute="centerX" id="ctm-3i-ssK"/>
+                                    <constraint firstItem="jeN-g7-awm" firstAttribute="centerX" secondItem="XxS-0R-w3I" secondAttribute="centerX" id="gQy-u7-WjF"/>
+                                    <constraint firstAttribute="trailing" secondItem="MxH-GR-PUL" secondAttribute="trailing" id="qbb-Wh-khC"/>
+                                    <constraint firstItem="jeN-g7-awm" firstAttribute="centerY" secondItem="mQs-0g-kEq" secondAttribute="centerY" id="r8B-Wo-xS0"/>
+                                    <constraint firstItem="MxH-GR-PUL" firstAttribute="leading" secondItem="J05-89-wNG" secondAttribute="leading" id="uVU-Lb-iNn"/>
+                                    <constraint firstItem="MxH-GR-PUL" firstAttribute="top" secondItem="5zT-Xz-AeZ" secondAttribute="bottom" constant="8" id="xNc-ie-qVT"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="J05-89-wNG" firstAttribute="centerY" secondItem="OMd-7h-kP7" secondAttribute="centerY" id="laS-ig-hwv"/>
+                            <constraint firstItem="J05-89-wNG" firstAttribute="centerX" secondItem="OMd-7h-kP7" secondAttribute="centerX" id="piy-HL-q6z"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OfN-KM-MYw"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="x56-8O-DvE" id="ur8-Sy-Vn0"/>
+                        <outlet property="incomeTextField" destination="Snj-6T-xVA" id="cr6-re-EhP"/>
+                        <outlet property="priceTextField" destination="XxS-0R-w3I" id="sHg-jI-8xy"/>
                         <outlet property="saveButton" destination="BDh-8s-LGq" id="XWs-gB-fiR"/>
+                        <outlet property="typeBusinessControl" destination="MxH-GR-PUL" id="kW4-9Q-h3V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOP-xk-Pgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cC9-qY-8up" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1409.375" y="138.8671875"/>
         </scene>

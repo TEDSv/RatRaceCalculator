@@ -68,13 +68,13 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     var randomIncome: Int = 500
     
     var totalCountOfBusiness: [Business] = []
-    var business: Business {
-        var type = businessType.small
-        var price = 600
-        var income = 300
-        
-        return Business(type: type, price: price, income: income)
-    }
+//    var business: Business {
+//        var type = businessType.small
+//        var price = 600
+//        var income = 300
+//
+//        return Business(type: type, price: price, income: income)
+//    }
     
         
     // MARK: - viewDidLoad
@@ -93,6 +93,14 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
         
 // MARK: - @IBAction Functions
+    @IBAction func unwindFromAddBusiness(unwindSegue: UIStoryboardSegue) {
+        guard let addBusinessViewController = unwindSegue.source as? AddBusinessViewController
+            else { return }
+        
+        
+//        totalCountOfBusiness.append(business)
+    }
+    
     @IBAction func cancelLastActionButtonTapped(_ sender: UIButton) {
         //Сделать историю действий
         //Добавить кнопку "изменить данные вручную"
@@ -116,7 +124,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
-        totalCountOfBusiness.append(business)
+        
         
         tableView.reloadData()
         updateUI()
@@ -298,6 +306,15 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         return true
     }
     */
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddBusiness" {
+            let popup = segue.destination as? AddBusinessViewController
+            
+            
+        }
+    }
     
 // MARK: - END
 }
