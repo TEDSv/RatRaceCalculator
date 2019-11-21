@@ -8,9 +8,21 @@
 // MARK: - START
 import UIKit
 
+
+
+// MARK: - #TODO
+// Добавить подсчет суммы доходов от бизнесов в пассивный доход и обновлять cashflow
+// Убирать из кошелька стоимость бизнеса
+// Запретить добавлять бизнес при минусовом счете
+// Менять строку типа бизнеса в зависимости от типа
+
+
+
+
+
 class CalculatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-// MARK: - @IBoutlet
+    // MARK: - @IBoutlet
     // add labels: какой ход и какой круг, сколько вложено в инвестиции, стоимость бизнесов
     @IBOutlet weak var namePlayerLabel: UILabel!
     @IBOutlet weak var genderPlayerLabel: UILabel!
@@ -68,18 +80,12 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     var randomIncome: Int = 500
     
     var totalCountOfBusiness: [Business] = []
-//    var business: Business {
-//        var type = businessType.small
-//        var price = 600
-//        var income = 300
-//
-//        return Business(type: type, price: price, income: income)
-//    }
-    
         
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         playerLoad()
         
         namePlayerLabel.text = "Имя: \(player.name)"
@@ -92,13 +98,16 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         updateUI()
     }
         
-// MARK: - @IBAction Functions
-    @IBAction func unwindFromAddBusiness(unwindSegue: UIStoryboardSegue) {
-        guard let addBusinessViewController = unwindSegue.source as? AddBusinessViewController
+    // MARK: - @IBAction Functions
+    @IBAction func unwindFromAddBusiness(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindFromAddBusiness" else { return }
+        guard let addBusinessViewController = segue.source as? AddBusinessViewController,
+            let newBusiness = addBusinessViewController.business
             else { return }
-        
-        
-//        totalCountOfBusiness.append(business)
+
+        totalCountOfBusiness.append(newBusiness)
+        tableView.reloadData()
+        updateUI()
     }
     
     @IBAction func cancelLastActionButtonTapped(_ sender: UIButton) {
@@ -124,10 +133,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
-        
-        
-        tableView.reloadData()
-        updateUI()
     }
     
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
@@ -198,7 +203,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         updateUI()
     }
 
-// MARK: - Other Functions
+    // MARK: - Other Functions
     func updateUI() {
         if player.gender == playerGender.male {
             if player.isMarried == true {
@@ -249,29 +254,25 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
 // MARK: - Table view data source
-
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return totalCountOfBusiness.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "businessCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "businessCell", for: indexPath) as! BusinessTableViewCell
         let businessRecord = totalCountOfBusiness[indexPath.row]
-        cell.textLabel?.text = "Доходы:"
-        cell.detailTextLabel?.text = "\(businessRecord.income)$"
-        
-        //Доходы от малого бизнеса
-        //Доходы от среднего бизнеса
-        //Доходы от среднего бизнеса
+        cell.update(with: businessRecord)
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90.0
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -308,6 +309,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     */
     
     // MARK: - Navigation
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddBusiness" {
             let popup = segue.destination as? AddBusinessViewController
@@ -315,7 +317,8 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
+     */
     
-// MARK: - END
+    // MARK: - END
 }
 

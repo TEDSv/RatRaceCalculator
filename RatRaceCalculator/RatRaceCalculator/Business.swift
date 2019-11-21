@@ -8,14 +8,25 @@
 
 import Foundation
 
-enum businessType {
-    case small
-    case medium
-    case large
+enum BusinessType: Int, CaseIterable {
+    case small = 0
+    case medium = 1
+    case large = 2
+
+    var name: String {
+        switch self {
+        case .small:
+            return "Малый"
+        case .medium:
+            return "Средний"
+        case .large:
+            return "Крупный"
+        }
+    }
 }
 
 struct Business {
-    var type: businessType
+    var type: BusinessType
     var price: Int
     var income: Int
 }

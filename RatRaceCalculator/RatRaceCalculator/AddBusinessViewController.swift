@@ -8,63 +8,83 @@
 
 import UIKit
 
-class AddBusinessViewController: UIViewController {
+// MARK: - #TODO
+// Запретить вводить что-нибудь кроме цифр
 
+
+
+class AddBusinessViewController: UIViewController {
     
-    
+    // MARK: - @IBoutlet
     @IBOutlet weak var typeBusinessControl: UISegmentedControl!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var incomeTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-//    @IBOutlet weak var
     
+    // MARK: - Variables and Constants
+    var business: Business? = Business(type: .small, price: 0, income: 0)
     
-    var business: Business? {
-        let type = businessType.small
-        let price = Int(priceTextField.text ?? "0") ?? 0
-        let income = Int(incomeTextField.text ?? "0") ?? 0
-        
-        return Business(type: type, price: price, income: income)
-    }
-    
+    // MARK: - viewDidLoad and viewDidAppear
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        typeBusinessControl.removeAllSegments()
     }
-    
 
-    @IBAction func typeBusinessControlTapped(_ sender: UISegmentedControl) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        let getIndex = typeBusinessControl.selectedSegmentIndex
-        
-        switch getIndex {
-        case 0:
-//            business.type =
-            businessType.small
-        case 1:
-            businessType.medium
-        case 2:
-            businessType.large
-        default:
-            print("nothing")
+        let allBusinesses = BusinessType.allCases
+        for index in allBusinesses.indices {
+            let business = allBusinesses[index]
+            typeBusinessControl.insertSegment(withTitle: business.name, at: index, animated: true)
         }
+    }
+
+    // MARK: - @IBAction Functions
+    @IBAction func typeBusinessControlTapped(_ sender: UISegmentedControl) {
+        let index = typeBusinessControl.selectedSegmentIndex
+
+        guard let selectedType = BusinessType(rawValue: index) else {
+            assertionFailure("Can not create business type")
+            return
+        }
+        print("Selected business index = \(selectedType)")
+        business?.type = selectedType
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+    // MARK: - Other Functions
+    private func showAlertMessage(_ message: String) {
+        let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard  segue.identifier == "unwindFromAddBusiness" else {
+            return
+        }
 
+        guard let priceText = priceTextField.text, let price = Int(priceText) else {
+//            showAlertMessage("Please enter valid data for price")
+            return
+        }
+
+        guard let incomeText = incomeTextField.text, let income = Int(incomeText) else {
+//            showAlertMessage("Please enter valid data for income")
+            return
+        }
+
+        business?.income = income
+        business?.price = price
+    }
+    // MARK: - END
 }
