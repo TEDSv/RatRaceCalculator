@@ -69,10 +69,9 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     var consumption: Int = 0
     var cashflow: Int = 0
     var wallet: Int = 0
-    var childrenCosts: Int = 0
 
-    var unexpectedExpeses: Int = 200
-    var randomIncome: Int = 500
+    var unexpectedExpeses: Int = 0
+    var randomIncome: Int = 0
 
     var totalCountOfBusiness: [Business] = []
 
@@ -94,17 +93,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     // MARK: - @IBAction Functions
-    @IBAction func unwindFromAddBusiness(segue: UIStoryboardSegue) {
-        guard segue.identifier == "unwindFromAddBusiness" else { return }
-        guard let addBusinessViewController = segue.source as? AddBusinessViewController,
-            let newBusiness = addBusinessViewController.business
-            else { return }
-
-        totalCountOfBusiness.append(newBusiness)
-        tableView.reloadData()
-        updateUI()
-    }
-
     @IBAction func cancelLastActionButtonTapped(_ sender: UIButton) {
         //Сделать историю действий
         //Добавить кнопку "изменить данные вручную"
@@ -117,14 +105,14 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBAction func randomIncomeButtonTapped(_ sender: UIButton) {
 
-        wallet += randomIncome
-        updateUI()
+//        wallet += randomIncome
+//        updateUI()
     }
 
     @IBAction func unexpectedExpesesButtonTapped(_ sender: UIButton) {
 
-        wallet -= unexpectedExpeses
-        updateUI()
+//        wallet -= unexpectedExpeses
+//        updateUI()
     }
 
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
@@ -193,7 +181,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBAction func bankruptButtonTapped(_ sender: UIButton) {
         totalCountOfBusiness.removeLast()
-        //пересчет стоимости всех бизнесов и дохода
         tableView.reloadData()
         updateUI()
     }
@@ -202,40 +189,27 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     func updateUI() {
         if player.gender == PlayerGender.male {
             if player.isMarried == true {
-            childrenCosts = player.kids * 300
+                player.setValue(player.kids * 300, for: Costs.kids)
             } else {
-                childrenCosts = 0
+                player.setValue(0, for: Costs.kids)
             }
         } else if player.gender == PlayerGender.female {
            if player.isMarried == false {
-            childrenCosts = player.kids * 300
+            player.setValue(player.kids * 300, for: Costs.kids)
             }
         }
+
+        calculatePassiveIncome()
         totalIncome = player.salary + passiveIncome
-//        consumption = player.rentalCosts + player.foodCosts +
-//        player.clothesCosts + player.clothesCosts + player.travelCosts + player.phoneCosts +
-//        childrenCosts + player.apartmentCosts + player.carCosts +
-//            player.houseCosts + player.yachtCosts + player.aircraftCosts
-        cashflow = totalIncome - consumption
+        cashflow = totalIncome - player.allCosts
 
         professionPlayerLabel.text = "Профессия: \(player.profession)"
         incomeLabel.text = "\(totalIncome)$"
-        consumptionLabel.text = "\(consumption)$"
+        consumptionLabel.text = "\(player.allCosts)$"
         cashflowLabel.text = "\(cashflow)$"
         walletLabel.text = "\(wallet)$"
         salaryLabel.text = "\(player.salary)$"
-        passiveIncomeLabel.text = "\(passiveIncome)"
-//        rentalCostsLabel.text = "\(player.rentalCosts)$"
-//        foodCostsLabel.text = "\(player.foodCosts)$"
-//        clothesCostsLabel.text = "\(player.clothesCosts)$"
-//        travelCostsLabel.text = "\(player.travelCosts)$"
-//        phoneCostsLabel.text = "\(player.phoneCosts)$"
-//        childrenCostsLabel.text = "\(childrenCosts)$"
-//        apartmentCostsLabel.text = "\(player.apartmentCosts)$"
-//        carCostsLabel.text = "\(player.carCosts)$"
-//        houseCostsLabel.text = "\(player.houseCosts)$"
-//        yachtCostsLabel.text = "\(player.yachtCosts)$"
-//        aircraftCostsLabel.text = "\(player.aircraftCosts)$"
+        passiveIncomeLabel.text = "\(passiveIncome)$"
 
         for costLabel in costLabels {
             if let cost = Costs(rawValue: costLabel.tag) {
@@ -243,6 +217,13 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 assertionFailure("Unable to find enum with tag = \(costLabel.tag)")
             }
+        }
+    }
+
+    func calculatePassiveIncome() {
+        passiveIncome = 0
+        for business in totalCountOfBusiness {
+            passiveIncome += business.income
         }
     }
 
@@ -321,15 +302,36 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
     // MARK: - Navigation
-    /*
+    @IBAction func unwindFromAddBusiness(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindFromAddBusiness" else { return }
+        guard let addBusinessViewController = segue.source as? AddBusinessViewController,
+            let newBusiness = addBusinessViewController.business
+            else { return }
+
+        totalCountOfBusiness.append(newBusiness)
+        tableView.reloadData()
+        updateUI()
+    }
+
+    @IBAction func unwindFromEnterCost(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindEnterCost" else { return }
+        guard let addBusinessViewController = segue.source as? EnterCostViewController,
+
+            else { return }
+
+        updateUI()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddBusiness" {
-            let popup = segue.destination as? AddBusinessViewController
-            
-            
+        if segue.identifier == "EnterRandomIncome" {
+            let popup = segue.destination as? EnterCostViewController
+            popup?.funcOfViewController = "EnterRandomIncome"
+        }
+
+        if segue.identifier == "EnterUnexpectedExpeses" {
+            let popup = segue.destination as? EnterCostViewController
+            popup?.funcOfViewController = "EnterUnexpectedExpeses"
         }
     }
-     */
-
     // MARK: - END
 }

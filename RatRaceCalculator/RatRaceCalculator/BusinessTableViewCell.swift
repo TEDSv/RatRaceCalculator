@@ -14,6 +14,7 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var countOfImprovementLabel: UILabel!
+    @IBOutlet weak var improvementLabel: UILabel!
     @IBOutlet weak var propertyLabel: UILabel!
 
     override func awakeFromNib() {
@@ -27,8 +28,19 @@ class BusinessTableViewCell: UITableViewCell {
     func update(with business: Business) {
         incomeLabel.text = "\(business.income)"
         priceLabel.text = "\(business.price)"
-        // if else с малым средним и большим
-        // улучшения должны пропадать на среднем и большом бизнесе
-    }
 
+        if business.type == BusinessType.small {
+            typeLabel.text = "Доходы от малого бизнеса:"
+        } else if business.type == BusinessType.medium {
+            typeLabel.text = "Доходы от среднего бизнеса:"
+            countOfImprovementLabel.isHidden = true
+            improvementLabel.isHidden = true
+        } else if business.type == BusinessType.large {
+            typeLabel.text = "Доходы от крупного бизнеса:"
+            countOfImprovementLabel.isHidden = true
+            improvementLabel.isHidden = true
+        }
+
+        // При выборе другого типа бизнеса предыдущие должны продаваться
+    }
 }
