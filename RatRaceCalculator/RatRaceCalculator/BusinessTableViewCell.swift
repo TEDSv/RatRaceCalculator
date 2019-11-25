@@ -15,7 +15,7 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var countOfImprovementLabel: UILabel!
     @IBOutlet weak var propertyLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -30,5 +30,5 @@ class BusinessTableViewCell: UITableViewCell {
         // if else с малым средним и большим
         // улучшения должны пропадать на среднем и большом бизнесе
     }
-    
+
 }
