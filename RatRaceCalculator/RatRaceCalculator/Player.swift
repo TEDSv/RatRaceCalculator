@@ -35,6 +35,12 @@ class Player {
     var isMarried: Bool = false
     var kids: Int = 0
 
+    var totalIncome: Int = 0
+    var passiveIncome: Int = 0
+    var consumption: Int = 0
+    var cashflow: Int = 0
+    var wallet: Int = 0
+
     private var _costValues: [Costs: Int] = [:]
 
     var allCosts: Int {

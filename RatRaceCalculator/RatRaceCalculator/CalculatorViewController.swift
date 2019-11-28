@@ -9,10 +9,8 @@
 import UIKit
 
 // MARK: - #TODO
-// Добавить подсчет суммы доходов от бизнесов в пассивный доход и обновлять cashflow
-// Убирать из кошелька стоимость бизнеса
-// Запретить добавлять бизнес при минусовом счете
-// Менять строку типа бизнеса в зависимости от типа
+// Запретить добавлять бизнес, инвестиции и покупки при минусовом счете
+// При втором бизнесе - увольнение
 
 class CalculatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -27,17 +25,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var salaryLabel: UILabel!
     @IBOutlet weak var passiveIncomeLabel: UILabel!
     @IBOutlet weak var walletLabel: UILabel!
-    @IBOutlet weak var rentalCostsLabel: UILabel!
-    @IBOutlet weak var foodCostsLabel: UILabel!
-    @IBOutlet weak var clothesCostsLabel: UILabel!
-    @IBOutlet weak var travelCostsLabel: UILabel!
-    @IBOutlet weak var phoneCostsLabel: UILabel!
-    @IBOutlet weak var apartmentCostsLabel: UILabel!
-    @IBOutlet weak var carCostsLabel: UILabel!
-    @IBOutlet weak var houseCostsLabel: UILabel!
-    @IBOutlet weak var yachtCostsLabel: UILabel!
-    @IBOutlet weak var aircraftCostsLabel: UILabel!
-    @IBOutlet weak var childrenCostsLabel: UILabel!
     @IBOutlet weak var carStatusLabel: UILabel!
     @IBOutlet weak var appartmentStatusLabel: UILabel!
     @IBOutlet weak var houseStatusLabel: UILabel!
@@ -64,15 +51,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     // MARK: - Variables and Constants
     var player = Player()
-    var totalIncome: Int = 0
-    var passiveIncome: Int = 0
-    var consumption: Int = 0
-    var cashflow: Int = 0
-    var wallet: Int = 0
-
-    var unexpectedExpeses: Int = 0
-    var randomIncome: Int = 0
-
     var totalCountOfBusiness: [Business] = []
 
     // MARK: - viewDidLoad
@@ -99,27 +77,24 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func payButtonTapped(_ sender: UIButton) {
-        wallet += cashflow
+        player.wallet += player.cashflow
         updateUI()
     }
 
     @IBAction func randomIncomeButtonTapped(_ sender: UIButton) {
-
-//        wallet += randomIncome
-//        updateUI()
     }
 
     @IBAction func unexpectedExpesesButtonTapped(_ sender: UIButton) {
-
-//        wallet -= unexpectedExpeses
-//        updateUI()
     }
 
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
     }
 
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
-        //перенести в таблицу?
+        let numberToImprove = totalCountOfBusiness.last?.countOfImprovement
+        if let index = totalCountOfBusiness.firstIndex(where: { $0.countOfImprovement == numberToImprove }) {
+            totalCountOfBusiness[index].countOfImprovement += 1
+        }
 
         tableView.reloadData()
         updateUI()
@@ -135,14 +110,14 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         if player.isMarried == false {
             marriageDivorceButton.setTitle("Развод", for: .normal)
             if player.gender == PlayerGender.male {
-                wallet -= 5000
+                player.wallet -= 5000
             }
         } else {
             marriageDivorceButton.setTitle("Свадьба", for: .normal)
             if player.gender == PlayerGender.male {
                 player.kids = 0
-                if wallet > 0 {
-                    wallet /= 2
+                if player.wallet > 0 {
+                    player.wallet /= 2
                 }
             }
         }
@@ -200,16 +175,16 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 
         calculatePassiveIncome()
-        totalIncome = player.salary + passiveIncome
-        cashflow = totalIncome - player.allCosts
+        player.totalIncome = player.salary + player.passiveIncome
+        player.cashflow = player.totalIncome - player.allCosts
 
         professionPlayerLabel.text = "Профессия: \(player.profession)"
-        incomeLabel.text = "\(totalIncome)$"
+        incomeLabel.text = "\(player.totalIncome)$"
         consumptionLabel.text = "\(player.allCosts)$"
-        cashflowLabel.text = "\(cashflow)$"
-        walletLabel.text = "\(wallet)$"
+        cashflowLabel.text = "\(player.cashflow)$"
+        walletLabel.text = "\(player.wallet)$"
         salaryLabel.text = "\(player.salary)$"
-        passiveIncomeLabel.text = "\(passiveIncome)$"
+        passiveIncomeLabel.text = "\(player.passiveIncome)$"
 
         for costLabel in costLabels {
             if let cost = Costs(rawValue: costLabel.tag) {
@@ -221,9 +196,9 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func calculatePassiveIncome() {
-        passiveIncome = 0
+        player.passiveIncome = 0
         for business in totalCountOfBusiness {
-            passiveIncome += business.income
+            player.passiveIncome += business.income
         }
     }
 
@@ -243,6 +218,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+        // 2 когда добавлю коррупционеров
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -264,43 +240,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         return 90.0
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView,
-     commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class,
-                insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
     @IBAction func unwindFromAddBusiness(segue: UIStoryboardSegue) {
         guard segue.identifier == "unwindFromAddBusiness" else { return }
@@ -313,25 +252,14 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         updateUI()
     }
 
-    @IBAction func unwindFromEnterCost(segue: UIStoryboardSegue) {
-        guard segue.identifier == "unwindEnterCost" else { return }
-        guard let addBusinessViewController = segue.source as? EnterCostViewController,
-
+    @IBAction func unwindFromEnterUnexpectedExpeses(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindFromEnterUnexpectedExpeses" else { return }
+        guard let enterUnexpectedExpesesViewController = segue.source as? EnterUnexpectedExpesesViewController,
+            let unexpectedExpeses = enterUnexpectedExpesesViewController.enteredValue as? Int
             else { return }
-
+        player.wallet -= unexpectedExpeses
         updateUI()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EnterRandomIncome" {
-            let popup = segue.destination as? EnterCostViewController
-            popup?.funcOfViewController = "EnterRandomIncome"
-        }
-
-        if segue.identifier == "EnterUnexpectedExpeses" {
-            let popup = segue.destination as? EnterCostViewController
-            popup?.funcOfViewController = "EnterUnexpectedExpeses"
-        }
-    }
     // MARK: - END
 }

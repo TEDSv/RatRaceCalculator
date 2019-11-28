@@ -29,4 +29,5 @@ struct Business {
     var type: BusinessType
     var price: Int
     var income: Int
+    var countOfImprovement: Int
 }

@@ -28,9 +28,12 @@ class BusinessTableViewCell: UITableViewCell {
     func update(with business: Business) {
         incomeLabel.text = "\(business.income)"
         priceLabel.text = "\(business.price)"
+        countOfImprovementLabel.text = "\(business.countOfImprovement)"
 
         if business.type == BusinessType.small {
             typeLabel.text = "Доходы от малого бизнеса:"
+            countOfImprovementLabel.isHidden = false
+            improvementLabel.isHidden = false
         } else if business.type == BusinessType.medium {
             typeLabel.text = "Доходы от среднего бизнеса:"
             countOfImprovementLabel.isHidden = true

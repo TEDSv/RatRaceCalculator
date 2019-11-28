@@ -162,7 +162,6 @@
                                         <state key="normal" title="Случайный доход"/>
                                         <connections>
                                             <action selector="randomIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hnJ-oE-TUM"/>
-                                            <segue destination="H6K-3G-Tq9" kind="presentation" identifier="EnterRandomIncome" id="ZX5-7A-BuL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-HX-4gx">
@@ -368,7 +367,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1hS-Dp-7Br">
                                 <rect key="frame" x="219" y="901.5" width="49" height="102.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXn-AR-g4U">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXn-AR-g4U" userLabel="Rental Costs Label">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -380,19 +379,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yn1-Bs-YJW">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yn1-Bs-YJW" userLabel="Clothes Costs Label">
                                         <rect key="frame" x="0.0" y="41" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjT-pF-wB8">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjT-pF-wB8" userLabel="Travel Costs Label">
                                         <rect key="frame" x="0.0" y="61.5" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-ou-TMd">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFo-ou-TMd" userLabel="Phone Costs Label">
                                         <rect key="frame" x="0.0" y="82" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -444,37 +443,37 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-3C-fci">
                                 <rect key="frame" x="495.5" y="881" width="49" height="123"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-bw-QQH">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-bw-QQH" userLabel="Children Costs Label">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zs-o0-afr">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zs-o0-afr" userLabel="Apartment Costs Label">
                                         <rect key="frame" x="0.0" y="20.5" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzz-bM-BdV">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzz-bM-BdV" userLabel="Car Costs Label">
                                         <rect key="frame" x="0.0" y="41" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrT-ms-Lk8">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrT-ms-Lk8" userLabel="House Costs Label">
                                         <rect key="frame" x="0.0" y="61.5" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfY-4A-uXh">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfY-4A-uXh" userLabel="Yacht Costs Label">
                                         <rect key="frame" x="0.0" y="82" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qj-oa-HaV">
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qj-oa-HaV" userLabel="Aircraft Costs Label">
                                         <rect key="frame" x="0.0" y="102.5" width="49" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -644,26 +643,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="sBX-Qu-Lzx"/>
                     <connections>
-                        <outlet property="aircraftCostsLabel" destination="6Qj-oa-HaV" id="Lsc-up-wEO"/>
                         <outlet property="aircraftStatusLabel" destination="IHZ-JI-uzO" id="d5g-bS-fNh"/>
-                        <outlet property="apartmentCostsLabel" destination="4zs-o0-afr" id="6nH-zY-dJU"/>
                         <outlet property="appartmentStatusLabel" destination="Dxk-Wq-pUA" id="kRR-GN-NbQ"/>
                         <outlet property="bankruptButton" destination="MKM-hW-q7W" id="xVY-ju-78S"/>
                         <outlet property="buyBusinessButton" destination="lBf-2Y-kWr" id="DBB-92-EZT"/>
                         <outlet property="cancelButton" destination="Z6u-rk-cgW" id="A07-H7-us9"/>
-                        <outlet property="carCostsLabel" destination="lzz-bM-BdV" id="aJn-8F-zzh"/>
                         <outlet property="carStatusLabel" destination="gVi-eA-k2g" id="c8c-v5-m9V"/>
                         <outlet property="cashflowLabel" destination="YIL-IM-XLV" id="K4y-V2-teB"/>
                         <outlet property="childButton" destination="KCG-HX-4gx" id="xuX-cc-DTd"/>
-                        <outlet property="childrenCostsLabel" destination="ODd-bw-QQH" id="1WO-wS-cNS"/>
                         <outlet property="childrenStatusLabel" destination="P4p-M6-Hwv" id="Pb0-fd-4Zr"/>
-                        <outlet property="clothesCostsLabel" destination="yn1-Bs-YJW" id="F9d-QR-vxV"/>
                         <outlet property="consumptionLabel" destination="fsC-Ap-pnT" id="shw-gI-AJm"/>
                         <outlet property="familyStatusLabel" destination="fGx-zh-gMZ" id="JyV-vZ-tmZ"/>
                         <outlet property="firedButton" destination="Q3u-XR-ClL" id="VmS-VI-BLJ"/>
-                        <outlet property="foodCostsLabel" destination="FUa-od-rYE" id="noW-gp-C6V"/>
                         <outlet property="genderPlayerLabel" destination="Yya-PK-83t" id="kZs-cf-zBJ"/>
-                        <outlet property="houseCostsLabel" destination="YrT-ms-Lk8" id="lDf-V2-Jkd"/>
                         <outlet property="houseStatusLabel" destination="w8C-kL-qEZ" id="46w-DX-KNt"/>
                         <outlet property="improveBusinessButton" destination="Omm-db-qZf" id="ybD-Po-JlR"/>
                         <outlet property="incomeLabel" destination="mwD-Jx-fuS" id="DaY-eD-5CH"/>
@@ -673,16 +665,12 @@
                         <outlet property="namePlayerLabel" destination="RgQ-jq-pgk" id="gDR-lb-uI9"/>
                         <outlet property="passiveIncomeLabel" destination="Srb-Hk-Wsi" id="fnX-Ro-LGm"/>
                         <outlet property="payButton" destination="K7K-b2-gv7" id="Kt1-lM-g9q"/>
-                        <outlet property="phoneCostsLabel" destination="xFo-ou-TMd" id="dj7-Ga-869"/>
                         <outlet property="professionPlayerLabel" destination="JHx-h0-0ii" id="8aN-LT-V1N"/>
                         <outlet property="randomIncomeButton" destination="oq0-r6-WmO" id="avB-UJ-dNZ"/>
-                        <outlet property="rentalCostsLabel" destination="cXn-AR-g4U" id="MMj-9L-kGQ"/>
                         <outlet property="salaryLabel" destination="pxD-WE-rig" id="bgr-SD-hyE"/>
                         <outlet property="tableView" destination="5PU-TC-i5M" id="muW-pz-I97"/>
-                        <outlet property="travelCostsLabel" destination="FjT-pF-wB8" id="Dzh-Hb-eHg"/>
                         <outlet property="unexpectedExpesesButton" destination="7uh-0s-cKA" id="Af6-Sm-bUg"/>
                         <outlet property="walletLabel" destination="hOj-yH-jtL" id="KP4-Fa-KGn"/>
-                        <outlet property="yachtCostsLabel" destination="MfY-4A-uXh" id="7uH-sE-5vI"/>
                         <outlet property="yachtStatusLabel" destination="SWh-Mm-4IN" id="4DK-6Q-ivF"/>
                         <outletCollection property="costLabels" destination="cXn-AR-g4U" collectionClass="NSMutableArray" id="Iun-80-xMr"/>
                         <outletCollection property="costLabels" destination="FUa-od-rYE" collectionClass="NSMutableArray" id="Ufp-Nm-c4t"/>
@@ -701,10 +689,10 @@
             </objects>
             <point key="canvasLocation" x="701.5625" y="138.8671875"/>
         </scene>
-        <!--Enter Cost View Controller-->
+        <!--Enter Unexpected Expeses View Controller-->
         <scene sceneID="EzW-Rk-rNt">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="H6K-3G-Tq9" customClass="EnterCostViewController" customModule="RatRaceCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="H6K-3G-Tq9" customClass="EnterUnexpectedExpesesViewController" customModule="RatRaceCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fwb-GA-by9">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -737,6 +725,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odB-9X-nEb">
                                                 <rect key="frame" x="105" y="0.0" width="105" height="30"/>
                                                 <state key="normal" title="OK"/>
+                                                <connections>
+                                                    <segue destination="GQC-Pu-evK" kind="unwind" identifier="unwindFromEnterUnexpectedExpeses" unwindAction="unwindFromEnterUnexpectedExpesesWithSegue:" id="gad-bg-cg1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -775,6 +766,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeJ-A3-uWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GQC-Pu-evK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1419.53125" y="444.72656249999994"/>
         </scene>
@@ -912,7 +904,4 @@
             <point key="canvasLocation" x="-64.0625" y="138.8671875"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="jXg-wd-c5N"/>
-    </inferredMetricsTieBreakers>
 </document>

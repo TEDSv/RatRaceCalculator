@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnterCostViewController: UIViewController {
+class EnterUnexpectedExpesesViewController: UIViewController {
 
     // MARK: - @IBoutlet
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,14 +17,12 @@ class EnterCostViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
 
     // MARK: - Variables and Constants
-    let calc = CalculatorViewController()
-    var funcOfViewController: String = ""
+    var player = Player()
     var enteredValue: Int = 0
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = funcOfViewController
     }
 
     // MARK: - @IBAction Functions
@@ -34,17 +32,15 @@ class EnterCostViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let text = textField.text, let enteredValue = Int(text) else {
+        guard  segue.identifier == "unwindFromEnterUnexpectedExpeses" else {
+            return
+        }
+        guard let text = textField.text, let value = Int(text) else {
+//            showAlertMessage("Please enter valid data")
             return
         }
 
-        if funcOfViewController == "EnterRandomIncome" {
-            calc.randomIncome = enteredValue
-        } else if funcOfViewController == "EnterUnexpectedExpeses" {
-            calc.unexpectedExpeses = enteredValue
-        } else {
-            return
-        }
+        enteredValue = value
     }
     // MARK: - END
 }

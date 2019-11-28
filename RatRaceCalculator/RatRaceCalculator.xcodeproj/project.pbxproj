@@ -19,7 +19,7 @@
 		8466F496238478AB0016C6E7 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F495238478AB0016C6E7 /* Business.swift */; };
 		8466F49E23848E5D0016C6E7 /* AddBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F49D23848E5D0016C6E7 /* AddBusinessViewController.swift */; };
 		8466F4A02387285B0016C6E7 /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F49F2387285B0016C6E7 /* BusinessTableViewCell.swift */; };
-		8466F4A4238C71900016C6E7 /* EnterCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F4A3238C71900016C6E7 /* EnterCostViewController.swift */; };
+		8466F4A4238C71900016C6E7 /* EnterUnexpectedExpesesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F4A3238C71900016C6E7 /* EnterUnexpectedExpesesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 		8466F495238478AB0016C6E7 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		8466F49D23848E5D0016C6E7 /* AddBusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBusinessViewController.swift; sourceTree = "<group>"; };
 		8466F49F2387285B0016C6E7 /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
-		8466F4A3238C71900016C6E7 /* EnterCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCostViewController.swift; sourceTree = "<group>"; };
+		8466F4A3238C71900016C6E7 /* EnterUnexpectedExpesesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUnexpectedExpesesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 				8466F4632379F2F10016C6E7 /* CalculatorViewController.swift */,
 				8466F49F2387285B0016C6E7 /* BusinessTableViewCell.swift */,
 				8466F49D23848E5D0016C6E7 /* AddBusinessViewController.swift */,
-				8466F4A3238C71900016C6E7 /* EnterCostViewController.swift */,
+				8466F4A3238C71900016C6E7 /* EnterUnexpectedExpesesViewController.swift */,
 				8466F48F237DD1620016C6E7 /* Player.swift */,
 				8466F495238478AB0016C6E7 /* Business.swift */,
 				8466F4652379F2F10016C6E7 /* Main.storyboard */,
@@ -301,7 +301,7 @@
 				8466F4622379F2F10016C6E7 /* SceneDelegate.swift in Sources */,
 				8466F496238478AB0016C6E7 /* Business.swift in Sources */,
 				8466F49E23848E5D0016C6E7 /* AddBusinessViewController.swift in Sources */,
-				8466F4A4238C71900016C6E7 /* EnterCostViewController.swift in Sources */,
+				8466F4A4238C71900016C6E7 /* EnterUnexpectedExpesesViewController.swift in Sources */,
 				8466F490237DD1620016C6E7 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

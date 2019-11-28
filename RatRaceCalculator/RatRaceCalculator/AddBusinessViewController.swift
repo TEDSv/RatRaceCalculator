@@ -21,7 +21,7 @@ class AddBusinessViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
 
     // MARK: - Variables and Constants
-    var business: Business? = Business(type: .small, price: 0, income: 0)
+    var business: Business? = Business(type: .small, price: 0, income: 0, countOfImprovement: 0)
 
     // MARK: - viewDidLoad and viewDidAppear
     override func viewDidLoad() {
