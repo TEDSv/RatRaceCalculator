@@ -93,11 +93,18 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
+        guard player.wallet > 299 else {
+            showAlertMessage("Не хватает денег на покупку бизнеса")
+            return
+        }
+
         performSegue(withIdentifier: "AddBusiness", sender: nil)
     }
 
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
-        //если уже есть хотя бы один малый бизнес
+        guard totalCountOfBusiness.count > 0 else { return }
+        guard totalCountOfBusiness.first?.type == BusinessType.small else { return }
+
         funcOfEnterValueVC = "improveBusiness"
         performSegue(withIdentifier: "EnterValue", sender: nil)
     }
@@ -153,6 +160,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
                 player.profession = "Безработная"
             }
         }
+        firedButton.isHidden = true
         updateUI()
     }
 
@@ -176,6 +184,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
 
+        hideUnusableButtons()
         calculatePassiveIncome()
         player.totalIncome = player.salary + player.passiveIncome
         player.cashflow = player.totalIncome - player.allCosts
@@ -202,6 +211,37 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         for business in totalCountOfBusiness {
             player.passiveIncome += business.income
         }
+    }
+
+    func hideUnusableButtons() {
+        if totalCountOfBusiness.count == 0 ||
+        totalCountOfBusiness.first?.type != BusinessType.small {
+            improveBusinessButton.isHidden = true
+        } else {
+            improveBusinessButton.isHidden = false
+        }
+
+        if totalCountOfBusiness.count == 0 {
+            bankruptButton.isHidden = true
+        } else {
+            bankruptButton.isHidden = false
+        }
+
+        if player.gender == PlayerGender.male {
+            if player.isMarried == false {
+                childButton.isHidden = true
+            } else {
+                childButton.isHidden = false
+            }
+        }
+    }
+
+    private func showAlertMessage(_ message: String) {
+        let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - PlayerLoad
@@ -248,6 +288,11 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let addBusinessViewController = segue.source as? AddBusinessViewController,
             let newBusiness = addBusinessViewController.business
             else { return }
+        guard player.wallet > newBusiness.price else {
+//            как-то нужно это выводить
+//            showAlertMessage("Не хватает денег на покупку бизнеса")
+            return
+        }
 
         totalCountOfBusiness.append(newBusiness)
         tableView.reloadData()

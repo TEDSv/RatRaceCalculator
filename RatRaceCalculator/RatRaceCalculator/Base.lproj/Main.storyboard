@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-JH-4OQ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-JH-4OQ" userLabel="playerInfo Stack">
                                 <rect key="frame" x="40" y="70" width="93" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя игрока" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgQ-jq-pgk">
@@ -38,7 +38,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-o6-YLb">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-o6-YLb" userLabel="financeSummary Stack">
                                 <rect key="frame" x="40" y="139.5" width="147" height="123"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зарплата:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGn-3G-s2m">
@@ -79,7 +79,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mg3-wd-fvk">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mg3-wd-fvk" userLabel="financeSummaryOutlet Stack">
                                 <rect key="frame" x="197" y="139.5" width="21" height="123"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxD-WE-rig">
@@ -120,113 +120,118 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tTv-u0-UQf">
-                                <rect key="frame" x="40" y="282.5" width="123" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="su5-Gy-wiO">
+                                <rect key="frame" x="40" y="272.5" width="522" height="120"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7K-b2-gv7">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
-                                        <state key="normal" title="Получка!"/>
-                                        <connections>
-                                            <action selector="payButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qr7-9t-y4R"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-LW-0jx">
-                                        <rect key="frame" x="0.0" y="30" width="91" height="30"/>
-                                        <state key="normal" title="Брак/Развод"/>
-                                        <connections>
-                                            <action selector="marriageDivorceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dUT-ku-Jp6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-2Y-kWr">
-                                        <rect key="frame" x="0.0" y="60" width="123" height="30"/>
-                                        <state key="normal" title="Покупка бизнеса"/>
-                                        <connections>
-                                            <action selector="buyBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhK-jy-C4v"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-XR-ClL">
-                                        <rect key="frame" x="0.0" y="90" width="85" height="30"/>
-                                        <state key="normal" title="Увольнение"/>
-                                        <connections>
-                                            <action selector="firedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AN4-dK-YJ9"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EMs-Nx-rG2">
-                                <rect key="frame" x="193" y="282.5" width="191" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-r6-WmO">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
-                                        <state key="normal" title="Случайный доход"/>
-                                        <connections>
-                                            <action selector="randomIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hnJ-oE-TUM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-HX-4gx">
-                                        <rect key="frame" x="0.0" y="30" width="137" height="30"/>
-                                        <state key="normal" title="Рождение ребенка"/>
-                                        <connections>
-                                            <action selector="childButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Exl-bl-Qfi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-db-qZf">
-                                        <rect key="frame" x="0.0" y="60" width="143" height="30"/>
-                                        <state key="normal" title="Улучшение бизнеса"/>
-                                        <connections>
-                                            <action selector="improveBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HDC-k4-JpM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-0s-cKA">
-                                        <rect key="frame" x="0.0" y="90" width="191" height="30"/>
-                                        <state key="normal" title="Непредвиденные расходы"/>
-                                        <connections>
-                                            <action selector="unexpectedExpesesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLv-nz-FV9"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="wyv-aQ-WwC">
-                                <rect key="frame" x="414" y="282.5" width="126" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-rk-cgW">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
-                                        <state key="normal" title="Отменить"/>
-                                        <connections>
-                                            <action selector="cancelLastActionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oND-qd-1dI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-HD-s4X">
-                                        <rect key="frame" x="0.0" y="30" width="126" height="30"/>
-                                        <state key="normal" title="Крупные покупки"/>
-                                        <connections>
-                                            <action selector="largePurchasesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mev-lY-sKU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQf-61-h29">
-                                        <rect key="frame" x="0.0" y="60" width="87" height="30"/>
-                                        <state key="normal" title="Инвестиции"/>
-                                        <connections>
-                                            <action selector="investmentsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smk-Q6-rr8"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-hW-q7W">
-                                        <rect key="frame" x="0.0" y="90" width="91" height="30"/>
-                                        <state key="normal" title="Банкротство"/>
-                                        <connections>
-                                            <action selector="bankruptButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxx-Nq-eQq"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tTv-u0-UQf" userLabel="firstButtons Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7K-b2-gv7">
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
+                                                <state key="normal" title="Получка!"/>
+                                                <connections>
+                                                    <action selector="payButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qr7-9t-y4R"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-LW-0jx">
+                                                <rect key="frame" x="0.0" y="30" width="91" height="30"/>
+                                                <state key="normal" title="Брак/Развод"/>
+                                                <connections>
+                                                    <action selector="marriageDivorceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dUT-ku-Jp6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-2Y-kWr">
+                                                <rect key="frame" x="0.0" y="60" width="123" height="30"/>
+                                                <state key="normal" title="Покупка бизнеса"/>
+                                                <connections>
+                                                    <action selector="buyBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhK-jy-C4v"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-XR-ClL">
+                                                <rect key="frame" x="0.0" y="90" width="85" height="30"/>
+                                                <state key="normal" title="Увольнение"/>
+                                                <connections>
+                                                    <action selector="firedButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AN4-dK-YJ9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EMs-Nx-rG2" userLabel="secondButtons Stack">
+                                        <rect key="frame" x="164" y="0.0" width="191" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-r6-WmO">
+                                                <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
+                                                <state key="normal" title="Случайный доход"/>
+                                                <connections>
+                                                    <action selector="randomIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hnJ-oE-TUM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-HX-4gx">
+                                                <rect key="frame" x="0.0" y="30" width="137" height="30"/>
+                                                <state key="normal" title="Рождение ребенка"/>
+                                                <connections>
+                                                    <action selector="childButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Exl-bl-Qfi"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-db-qZf">
+                                                <rect key="frame" x="0.0" y="60" width="143" height="30"/>
+                                                <state key="normal" title="Улучшение бизнеса"/>
+                                                <connections>
+                                                    <action selector="improveBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HDC-k4-JpM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-0s-cKA">
+                                                <rect key="frame" x="0.0" y="90" width="191" height="30"/>
+                                                <state key="normal" title="Непредвиденные расходы"/>
+                                                <connections>
+                                                    <action selector="unexpectedExpesesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLv-nz-FV9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="wyv-aQ-WwC" userLabel="thirdButtons Stack">
+                                        <rect key="frame" x="396" y="0.0" width="126" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-rk-cgW">
+                                                <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
+                                                <state key="normal" title="Отменить"/>
+                                                <connections>
+                                                    <action selector="cancelLastActionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oND-qd-1dI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-HD-s4X">
+                                                <rect key="frame" x="0.0" y="30" width="126" height="30"/>
+                                                <state key="normal" title="Крупные покупки"/>
+                                                <connections>
+                                                    <action selector="largePurchasesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mev-lY-sKU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQf-61-h29">
+                                                <rect key="frame" x="0.0" y="60" width="87" height="30"/>
+                                                <state key="normal" title="Инвестиции"/>
+                                                <connections>
+                                                    <action selector="investmentsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smk-Q6-rr8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-hW-q7W">
+                                                <rect key="frame" x="0.0" y="90" width="91" height="30"/>
+                                                <state key="normal" title="Банкротство"/>
+                                                <connections>
+                                                    <action selector="bankruptButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxx-Nq-eQq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пассивные доходы:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkf-VW-8ZC">
-                                <rect key="frame" x="20" y="422.5" width="370" height="24"/>
+                                <rect key="frame" x="20" y="412.5" width="370" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5PU-TC-i5M">
-                                <rect key="frame" x="20" y="454.5" width="370" height="403"/>
+                                <rect key="frame" x="20" y="444.5" width="370" height="413"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="370" id="JI5-v8-8Zh"/>
@@ -599,31 +604,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Tkf-VW-8ZC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2Xt-g8-1Ws"/>
-                            <constraint firstItem="EMs-Nx-rG2" firstAttribute="top" secondItem="tTv-u0-UQf" secondAttribute="top" id="3jq-7r-qeV"/>
                             <constraint firstItem="gR2-L0-Ma7" firstAttribute="leading" secondItem="g9K-vA-j9S" secondAttribute="leading" id="4uC-Fj-Cxx"/>
                             <constraint firstItem="mg3-wd-fvk" firstAttribute="top" secondItem="LBW-o6-YLb" secondAttribute="top" id="6Dd-O0-sdd"/>
                             <constraint firstItem="1hS-Dp-7Br" firstAttribute="bottom" secondItem="Rps-Ba-1ZE" secondAttribute="bottom" id="8s1-za-UB9"/>
                             <constraint firstItem="1hS-Dp-7Br" firstAttribute="leading" secondItem="Rps-Ba-1ZE" secondAttribute="trailing" constant="10" id="9qR-ag-Qi2"/>
-                            <constraint firstItem="Tkf-VW-8ZC" firstAttribute="top" secondItem="EMs-Nx-rG2" secondAttribute="bottom" constant="20" id="AX4-61-pkf"/>
                             <constraint firstItem="sHT-Zb-shC" firstAttribute="leading" secondItem="gR2-L0-Ma7" secondAttribute="leading" id="Cge-I5-n7w"/>
                             <constraint firstItem="Gou-JH-4OQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="EaS-Ip-qc7"/>
                             <constraint firstItem="Tkf-VW-8ZC" firstAttribute="trailing" secondItem="5PU-TC-i5M" secondAttribute="trailing" id="GL3-Ct-XXp"/>
-                            <constraint firstItem="tTv-u0-UQf" firstAttribute="top" secondItem="LBW-o6-YLb" secondAttribute="bottom" constant="20" id="IHc-Ig-CDD"/>
                             <constraint firstItem="xhb-3C-fci" firstAttribute="bottom" secondItem="WOR-nx-zdi" secondAttribute="bottom" id="IuQ-Ze-60L"/>
                             <constraint firstItem="LBW-o6-YLb" firstAttribute="leading" secondItem="Gou-JH-4OQ" secondAttribute="leading" id="NqB-8s-1Rr"/>
                             <constraint firstItem="2dA-GK-ln1" firstAttribute="bottom" secondItem="sHT-Zb-shC" secondAttribute="bottom" id="PF9-kE-aiH"/>
                             <constraint firstItem="LBW-o6-YLb" firstAttribute="top" secondItem="Gou-JH-4OQ" secondAttribute="bottom" constant="8" id="RSe-iF-DbY"/>
                             <constraint firstItem="Rps-Ba-1ZE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="TsB-0a-Y2O"/>
                             <constraint firstItem="WOR-nx-zdi" firstAttribute="leading" secondItem="1hS-Dp-7Br" secondAttribute="trailing" constant="30" id="Tuo-9W-Eyt"/>
+                            <constraint firstItem="Tkf-VW-8ZC" firstAttribute="top" secondItem="su5-Gy-wiO" secondAttribute="bottom" constant="20" id="UYm-5Q-lyY"/>
+                            <constraint firstItem="su5-Gy-wiO" firstAttribute="top" secondItem="LBW-o6-YLb" secondAttribute="bottom" constant="10" id="Woa-7Z-Y1H"/>
                             <constraint firstItem="5PU-TC-i5M" firstAttribute="top" secondItem="Tkf-VW-8ZC" secondAttribute="bottom" constant="8" id="a6c-rG-geV"/>
                             <constraint firstItem="mg3-wd-fvk" firstAttribute="leading" secondItem="LBW-o6-YLb" secondAttribute="trailing" constant="10" id="brx-nk-uGC"/>
-                            <constraint firstItem="EMs-Nx-rG2" firstAttribute="leading" secondItem="tTv-u0-UQf" secondAttribute="trailing" constant="30" id="c36-dv-Bu4"/>
+                            <constraint firstItem="su5-Gy-wiO" firstAttribute="leading" secondItem="LBW-o6-YLb" secondAttribute="leading" id="cHT-Uo-wmc"/>
                             <constraint firstItem="Gou-JH-4OQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ccW-ur-JVC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rps-Ba-1ZE" secondAttribute="bottom" constant="20" id="cgc-7m-UaK"/>
                             <constraint firstItem="2dA-GK-ln1" firstAttribute="leading" secondItem="sHT-Zb-shC" secondAttribute="trailing" constant="10" id="ewI-S3-VCC"/>
                             <constraint firstItem="gBY-65-1XO" firstAttribute="bottom" secondItem="g9K-vA-j9S" secondAttribute="bottom" id="fOv-YG-kcQ"/>
                             <constraint firstItem="Rps-Ba-1ZE" firstAttribute="top" secondItem="5PU-TC-i5M" secondAttribute="bottom" constant="20" id="gpb-zj-N4a"/>
-                            <constraint firstItem="tTv-u0-UQf" firstAttribute="leading" secondItem="LBW-o6-YLb" secondAttribute="leading" id="jFN-Bl-S7C"/>
                             <constraint firstItem="g9K-vA-j9S" firstAttribute="top" secondItem="gR2-L0-Ma7" secondAttribute="bottom" constant="8" id="jsv-to-fT5"/>
                             <constraint firstItem="5PU-TC-i5M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ky4-ia-mFP"/>
                             <constraint firstItem="xhb-3C-fci" firstAttribute="leading" secondItem="WOR-nx-zdi" secondAttribute="trailing" constant="10" id="lDb-lz-uas"/>
@@ -631,9 +634,7 @@
                             <constraint firstItem="gBY-65-1XO" firstAttribute="bottom" secondItem="g9K-vA-j9S" secondAttribute="bottom" id="mua-ba-M3V"/>
                             <constraint firstItem="g9K-vA-j9S" firstAttribute="bottom" secondItem="xhb-3C-fci" secondAttribute="bottom" id="t8B-mk-dl0"/>
                             <constraint firstItem="g9K-vA-j9S" firstAttribute="leading" secondItem="xhb-3C-fci" secondAttribute="trailing" constant="30" id="tRY-4V-qha"/>
-                            <constraint firstItem="wyv-aQ-WwC" firstAttribute="leading" secondItem="EMs-Nx-rG2" secondAttribute="trailing" constant="30" id="tXz-Lo-Nuo"/>
                             <constraint firstItem="gBY-65-1XO" firstAttribute="leading" secondItem="g9K-vA-j9S" secondAttribute="trailing" constant="10" id="uQn-Ge-dyc"/>
-                            <constraint firstItem="wyv-aQ-WwC" firstAttribute="top" secondItem="tTv-u0-UQf" secondAttribute="top" id="vEZ-yF-sRf"/>
                             <constraint firstItem="gBY-65-1XO" firstAttribute="bottom" secondItem="g9K-vA-j9S" secondAttribute="bottom" id="ynO-j3-xmf"/>
                             <constraint firstItem="WOR-nx-zdi" firstAttribute="bottom" secondItem="Rps-Ba-1ZE" secondAttribute="bottom" id="zZA-Bo-3Sm"/>
                         </constraints>

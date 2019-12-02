@@ -8,9 +8,6 @@
 
 import UIKit
 
-// MARK: - #TODO
-// Запретить вводить что-нибудь кроме цифр
-
 class AddBusinessViewController: UIViewController {
 
     // MARK: - @IBoutlet
@@ -49,6 +46,8 @@ class AddBusinessViewController: UIViewController {
         }
         print("Selected business index = \(selectedType)")
         business?.type = selectedType
+        // MARK: - #TODO
+        // При выборе нового типа бизнеса давать алерт и предлагать продать другие бизнесы
     }
 
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
