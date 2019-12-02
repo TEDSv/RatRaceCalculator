@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnterUnexpectedExpesesViewController: UIViewController {
+class EnterValueViewController: UIViewController {
 
     // MARK: - @IBoutlet
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,7 +38,7 @@ class EnterUnexpectedExpesesViewController: UIViewController {
 
         enteredValue = value
 
-        performSegue(withIdentifier: "unwindFromEnterUnexpectedExpeses", sender: nil)
+        performSegue(withIdentifier: "unwindFromEnterValue", sender: nil)
     }
 
     // MARK: - Other Functions

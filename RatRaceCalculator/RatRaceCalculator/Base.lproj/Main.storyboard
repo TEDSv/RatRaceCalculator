@@ -682,17 +682,17 @@
                         <outletCollection property="costLabels" destination="MfY-4A-uXh" collectionClass="NSMutableArray" id="hic-7C-VO8"/>
                         <outletCollection property="costLabels" destination="6Qj-oa-HaV" collectionClass="NSMutableArray" id="ba7-qV-bDi"/>
                         <segue destination="4aE-DC-F4y" kind="presentation" identifier="AddBusiness" id="VCT-Bn-QM3"/>
-                        <segue destination="H6K-3G-Tq9" kind="presentation" identifier="EnterUnexpectedExpeses" id="jof-Em-NXl"/>
+                        <segue destination="H6K-3G-Tq9" kind="presentation" identifier="EnterValue" id="tkb-A7-cdu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="701.5625" y="138.8671875"/>
         </scene>
-        <!--Enter Unexpected Expeses View Controller-->
+        <!--Enter Value View Controller-->
         <scene sceneID="EzW-Rk-rNt">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="H6K-3G-Tq9" customClass="EnterUnexpectedExpesesViewController" customModule="RatRaceCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="H6K-3G-Tq9" customClass="EnterValueViewController" customModule="RatRaceCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fwb-GA-by9">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -763,7 +763,7 @@
                         <outlet property="saveButton" destination="odB-9X-nEb" id="SJw-oD-Yo0"/>
                         <outlet property="textField" destination="m6H-8K-jhd" id="9aI-Oc-KOB"/>
                         <outlet property="titleLabel" destination="scH-82-VPo" id="O89-AZ-NZL"/>
-                        <segue destination="GQC-Pu-evK" kind="unwind" identifier="unwindFromEnterUnexpectedExpeses" unwindAction="unwindFromEnterUnexpectedExpesesWithSegue:" id="7YK-D0-eUw"/>
+                        <segue destination="GQC-Pu-evK" kind="unwind" identifier="unwindFromEnterValue" unwindAction="unwindFromEnterValueWithSegue:" id="Twe-lo-ofO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeJ-A3-uWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

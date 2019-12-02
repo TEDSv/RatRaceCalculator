@@ -52,6 +52,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Variables and Constants
     var player = Player()
     var totalCountOfBusiness: [Business] = []
+    var funcOfEnterValueVC: String = ""
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -82,10 +83,13 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func randomIncomeButtonTapped(_ sender: UIButton) {
+        funcOfEnterValueVC = "randomIncome"
+        performSegue(withIdentifier: "EnterValue", sender: nil)
     }
 
     @IBAction func unexpectedExpesesButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "EnterUnexpectedExpeses", sender: nil)
+        funcOfEnterValueVC = "unexpectedExpeses"
+        performSegue(withIdentifier: "EnterValue", sender: nil)
     }
 
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
@@ -93,6 +97,8 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
+//        funcOfEnterValueVC = "improveBusiness"
+//        performSegue(withIdentifier: "EnterValue", sender: nil)
         let numberToImprove = totalCountOfBusiness.last?.countOfImprovement
         if let index = totalCountOfBusiness.firstIndex(where: { $0.countOfImprovement == numberToImprove }) {
             totalCountOfBusiness[index].countOfImprovement += 1
@@ -254,12 +260,19 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         updateUI()
     }
 
-    @IBAction func unwindFromEnterUnexpectedExpeses(segue: UIStoryboardSegue) {
-        guard segue.identifier == "unwindFromEnterUnexpectedExpeses" else { return }
-        guard let enterUnexpectedExpesesViewController = segue.source as? EnterUnexpectedExpesesViewController,
-            let unexpectedExpeses = enterUnexpectedExpesesViewController.enteredValue as? Int
-            else { return }
-        player.wallet -= unexpectedExpeses
+    @IBAction func unwindFromEnterValue(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindFromEnterValue" else { return }
+        guard let enterValueViewController = segue.source as? EnterValueViewController
+        else { return }
+
+        if funcOfEnterValueVC == "randomIncome" {
+            player.wallet += enterValueViewController.enteredValue
+        } else if funcOfEnterValueVC == "unexpectedExpeses" {
+            player.wallet -= enterValueViewController.enteredValue
+        } else {
+            return
+        }
+
         updateUI()
     }
 
