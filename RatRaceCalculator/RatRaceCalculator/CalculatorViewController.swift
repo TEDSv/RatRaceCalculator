@@ -59,7 +59,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        playerLoad()
+        loadSamplePlayer()
 
         namePlayerLabel.text = "Имя: \(player.name)"
         marriageDivorceButton.setTitle("Свадьба", for: .normal)
@@ -97,15 +97,9 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {
-//        funcOfEnterValueVC = "improveBusiness"
-//        performSegue(withIdentifier: "EnterValue", sender: nil)
-        let numberToImprove = totalCountOfBusiness.last?.countOfImprovement
-        if let index = totalCountOfBusiness.firstIndex(where: { $0.countOfImprovement == numberToImprove }) {
-            totalCountOfBusiness[index].countOfImprovement += 1
-        }
-
-        tableView.reloadData()
-        updateUI()
+        //если уже есть хотя бы один малый бизнес
+        funcOfEnterValueVC = "improveBusiness"
+        performSegue(withIdentifier: "EnterValue", sender: nil)
     }
 
     @IBAction func investmentsButtonTapped(_ sender: UIButton) {
@@ -211,7 +205,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     // MARK: - PlayerLoad
-    func playerLoad() {
+    func loadSamplePlayer() {
         player.name = "Bob"
         player.gender = PlayerGender.male
         player.profession = "Кладовщик"
@@ -269,6 +263,13 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
             player.wallet += enterValueViewController.enteredValue
         } else if funcOfEnterValueVC == "unexpectedExpeses" {
             player.wallet -= enterValueViewController.enteredValue
+        } else if funcOfEnterValueVC == "improveBusiness" {
+            let numberToImprove = totalCountOfBusiness.last?.countOfImprovement
+            if let index = totalCountOfBusiness.firstIndex(where: { $0.countOfImprovement == numberToImprove }) {
+                totalCountOfBusiness[index].countOfImprovement += 1
+                totalCountOfBusiness[index].income += enterValueViewController.enteredValue
+                tableView.reloadData()
+            }
         } else {
             return
         }
