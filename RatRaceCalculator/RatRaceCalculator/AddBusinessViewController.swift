@@ -55,6 +55,23 @@ class AddBusinessViewController: UIViewController {
         dismiss(animated: true)
     }
 
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        guard let priceText = priceTextField.text, let price = Int(priceText) else {
+            showAlertMessage("Please enter valid data for price")
+            return
+        }
+
+        guard let incomeText = incomeTextField.text, let income = Int(incomeText) else {
+            showAlertMessage("Please enter valid data for income")
+            return
+        }
+
+        business?.income = income
+        business?.price = price
+
+        performSegue(withIdentifier: "unwindFromAddBusiness", sender: nil)
+    }
+
     // MARK: - Other Functions
     private func showAlertMessage(_ message: String) {
         let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
@@ -64,24 +81,5 @@ class AddBusinessViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard  segue.identifier == "unwindFromAddBusiness" else {
-            return
-        }
-
-        guard let priceText = priceTextField.text, let price = Int(priceText) else {
-//            showAlertMessage("Please enter valid data for price")
-            return
-        }
-
-        guard let incomeText = incomeTextField.text, let income = Int(incomeText) else {
-//            showAlertMessage("Please enter valid data for income")
-            return
-        }
-
-        business?.income = income
-        business?.price = price
-    }
     // MARK: - END
 }

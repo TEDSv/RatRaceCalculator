@@ -85,9 +85,11 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func unexpectedExpesesButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "EnterUnexpectedExpeses", sender: nil)
     }
 
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "AddBusiness", sender: nil)
     }
 
     @IBAction func improveBusinessButtonTapped(_ sender: UIButton) {

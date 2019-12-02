@@ -30,17 +30,25 @@ class EnterUnexpectedExpesesViewController: UIViewController {
         dismiss(animated: true)
     }
 
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard  segue.identifier == "unwindFromEnterUnexpectedExpeses" else {
-            return
-        }
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let text = textField.text, let value = Int(text) else {
-//            showAlertMessage("Please enter valid data")
+            showAlertMessage("Please enter valid data")
             return
         }
 
         enteredValue = value
+
+        performSegue(withIdentifier: "unwindFromEnterUnexpectedExpeses", sender: nil)
     }
+
+    // MARK: - Other Functions
+    private func showAlertMessage(_ message: String) {
+        let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     // MARK: - END
 }

@@ -142,7 +142,6 @@
                                         <state key="normal" title="Покупка бизнеса"/>
                                         <connections>
                                             <action selector="buyBusinessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhK-jy-C4v"/>
-                                            <segue destination="4aE-DC-F4y" kind="presentation" identifier="AddBusiness" id="fc6-1x-QOr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-XR-ClL">
@@ -183,7 +182,6 @@
                                         <state key="normal" title="Непредвиденные расходы"/>
                                         <connections>
                                             <action selector="unexpectedExpesesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLv-nz-FV9"/>
-                                            <segue destination="H6K-3G-Tq9" kind="presentation" identifier="EnterUnexpectedExpeses" id="jXg-wd-c5N"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -683,6 +681,8 @@
                         <outletCollection property="costLabels" destination="YrT-ms-Lk8" collectionClass="NSMutableArray" id="8fP-ns-T9v"/>
                         <outletCollection property="costLabels" destination="MfY-4A-uXh" collectionClass="NSMutableArray" id="hic-7C-VO8"/>
                         <outletCollection property="costLabels" destination="6Qj-oa-HaV" collectionClass="NSMutableArray" id="ba7-qV-bDi"/>
+                        <segue destination="4aE-DC-F4y" kind="presentation" identifier="AddBusiness" id="VCT-Bn-QM3"/>
+                        <segue destination="H6K-3G-Tq9" kind="presentation" identifier="EnterUnexpectedExpeses" id="jof-Em-NXl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -726,7 +726,7 @@
                                                 <rect key="frame" x="105" y="0.0" width="105" height="30"/>
                                                 <state key="normal" title="OK"/>
                                                 <connections>
-                                                    <segue destination="GQC-Pu-evK" kind="unwind" identifier="unwindFromEnterUnexpectedExpeses" unwindAction="unwindFromEnterUnexpectedExpesesWithSegue:" id="gad-bg-cg1"/>
+                                                    <action selector="saveButtonPressed:" destination="H6K-3G-Tq9" eventType="touchUpInside" id="nis-GL-Lxq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -763,6 +763,7 @@
                         <outlet property="saveButton" destination="odB-9X-nEb" id="SJw-oD-Yo0"/>
                         <outlet property="textField" destination="m6H-8K-jhd" id="9aI-Oc-KOB"/>
                         <outlet property="titleLabel" destination="scH-82-VPo" id="O89-AZ-NZL"/>
+                        <segue destination="GQC-Pu-evK" kind="unwind" identifier="unwindFromEnterUnexpectedExpeses" unwindAction="unwindFromEnterUnexpectedExpesesWithSegue:" id="7YK-D0-eUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeJ-A3-uWD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -837,7 +838,7 @@
                                         <rect key="frame" x="240" y="190" width="30" height="30"/>
                                         <state key="normal" title="OK"/>
                                         <connections>
-                                            <segue destination="cC9-qY-8up" kind="unwind" identifier="unwindFromAddBusiness" unwindAction="unwindFromAddBusinessWithSegue:" id="dIB-YZ-eEx"/>
+                                            <action selector="saveButtonPressed:" destination="4aE-DC-F4y" eventType="touchUpInside" id="2zT-2b-0d6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -878,6 +879,7 @@
                         <outlet property="priceTextField" destination="XxS-0R-w3I" id="sHg-jI-8xy"/>
                         <outlet property="saveButton" destination="BDh-8s-LGq" id="XWs-gB-fiR"/>
                         <outlet property="typeBusinessControl" destination="MxH-GR-PUL" id="kW4-9Q-h3V"/>
+                        <segue destination="cC9-qY-8up" kind="unwind" identifier="unwindFromAddBusiness" unwindAction="unwindFromAddBusinessWithSegue:" id="QyS-Xh-lk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOP-xk-Pgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
