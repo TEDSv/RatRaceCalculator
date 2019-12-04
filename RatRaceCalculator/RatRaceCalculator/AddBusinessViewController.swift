@@ -56,14 +56,20 @@ class AddBusinessViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let priceText = priceTextField.text, let price = Int(priceText) else {
-            showAlertMessage("Please enter valid data for price")
+            showAlertMessage("Введите верные значения для стоимости бизнеса")
             return
         }
 
         guard let incomeText = incomeTextField.text, let income = Int(incomeText) else {
-            showAlertMessage("Please enter valid data for income")
+            showAlertMessage("Введите верные значения для доходности бизнеса")
             return
         }
+
+// MARK: - #TODO
+//        guard Player().wallet > price else {
+//            showAlertMessage("Не хватает средств на покупку бизнеса")
+//            return
+//                }
 
         business?.income = income
         business?.price = price
@@ -73,7 +79,7 @@ class AddBusinessViewController: UIViewController {
 
     // MARK: - Other Functions
     private func showAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Неверный ввод данных", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
 
         alert.addAction(okAction)

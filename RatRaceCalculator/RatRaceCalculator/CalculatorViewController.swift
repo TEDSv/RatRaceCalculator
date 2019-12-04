@@ -32,6 +32,11 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var aircraftStatusLabel: UILabel!
     @IBOutlet weak var familyStatusLabel: UILabel!
     @IBOutlet weak var childrenStatusLabel: UILabel!
+    @IBOutlet weak var countOfMovesLabel: UILabel!
+    @IBOutlet weak var countOfLapsLabel: UILabel!
+    @IBOutlet weak var totalBusinessPriceLabel: UILabel!
+    @IBOutlet weak var totalPriceOfInvestmentsLabel: UILabel!
+    @IBOutlet weak var totalSumOfCreditsLabel: UILabel!
     @IBOutlet var costLabels: [UILabel]!
 
     @IBOutlet weak var tableView: UITableView!
@@ -53,6 +58,11 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     var player = Player()
     var totalCountOfBusiness: [Business] = []
     var funcOfEnterValueVC: String = ""
+    var totalCountOfSalary: Int = 0
+    var laps: Int = 0
+    var totalBusinessPrice: Int {
+        return totalCountOfBusiness.map({$0.price}).reduce(0, +)
+    }
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -79,6 +89,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBAction func payButtonTapped(_ sender: UIButton) {
         player.wallet += player.cashflow
+        totalCountOfSalary += 1
         updateUI()
     }
 
@@ -106,6 +117,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         guard totalCountOfBusiness.first?.type == BusinessType.small else { return }
 
         funcOfEnterValueVC = "improveBusiness"
+        // сделать другой VC? с крутилкой, где будут перечислены варианты улучшений МБ
         performSegue(withIdentifier: "EnterValue", sender: nil)
     }
 
@@ -184,6 +196,8 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
 
+        laps = totalCountOfSalary / 4
+
         hideUnusableButtons()
         calculatePassiveIncome()
         player.totalIncome = player.salary + player.passiveIncome
@@ -196,6 +210,8 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         walletLabel.text = "\(player.wallet)$"
         salaryLabel.text = "\(player.salary)$"
         passiveIncomeLabel.text = "\(player.passiveIncome)$"
+        countOfLapsLabel.text = "\(laps)"
+        totalBusinessPriceLabel.text = "\(totalBusinessPrice)$"
 
         for costLabel in costLabels {
             if let cost = Costs(rawValue: costLabel.tag) {
@@ -237,7 +253,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     private func showAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Неверный ввод данных", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
 
         alert.addAction(okAction)
@@ -288,11 +304,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let addBusinessViewController = segue.source as? AddBusinessViewController,
             let newBusiness = addBusinessViewController.business
             else { return }
-        guard player.wallet > newBusiness.price else {
-//            как-то нужно это выводить
-//            showAlertMessage("Не хватает денег на покупку бизнеса")
-            return
-        }
 
         totalCountOfBusiness.append(newBusiness)
         tableView.reloadData()
@@ -309,6 +320,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         } else if funcOfEnterValueVC == "unexpectedExpeses" {
             player.wallet -= enterValueViewController.enteredValue
         } else if funcOfEnterValueVC == "improveBusiness" {
+            guard totalCountOfBusiness.first?.type == BusinessType.small else { return }
             let numberToImprove = totalCountOfBusiness.last?.countOfImprovement
             if let index = totalCountOfBusiness.firstIndex(where: { $0.countOfImprovement == numberToImprove }) {
                 totalCountOfBusiness[index].countOfImprovement += 1

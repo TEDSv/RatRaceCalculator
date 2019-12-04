@@ -43,7 +43,7 @@ class EnterValueViewController: UIViewController {
 
     // MARK: - Other Functions
     private func showAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Incorrect data!", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Неверный ввод данных", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
 
         alert.addAction(okAction)
