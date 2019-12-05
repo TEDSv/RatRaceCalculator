@@ -19,6 +19,7 @@ class AddBusinessViewController: UIViewController {
 
     // MARK: - Variables and Constants
     var business: Business? = Business(type: .small, price: 0, income: 0, countOfImprovement: 0)
+    var playerWallet: Int = 0
 
     // MARK: - viewDidLoad and viewDidAppear
     override func viewDidLoad() {
@@ -56,35 +57,29 @@ class AddBusinessViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let priceText = priceTextField.text, let price = Int(priceText) else {
-            showAlertMessage("Введите верные значения для стоимости бизнеса")
+            UIAlertController.showAlert(title: "Неверная стоимость бизнеса",
+                                        message: "Введите верные значения для стоимости бизнеса",
+                                        from: self)
             return
         }
 
         guard let incomeText = incomeTextField.text, let income = Int(incomeText) else {
-            showAlertMessage("Введите верные значения для доходности бизнеса")
+            UIAlertController.showAlert(title: "Неверный доход бизнеса",
+                                        message: "Введите верные значения для доходности бизнеса",
+                                        from: self)
             return
         }
 
-// MARK: - #TODO
-//        guard Player().wallet > price else {
-//            showAlertMessage("Не хватает средств на покупку бизнеса")
-//            return
-//                }
+        guard playerWallet > price else {
+            UIAlertController.showAlert(title: "Не хватает средств на покупку бизнеса",
+                                        message: "Нужно еще немного поработать",
+                                        from: self)
+            return
+        }
 
         business?.income = income
         business?.price = price
-
         performSegue(withIdentifier: "unwindFromAddBusiness", sender: nil)
     }
-
-    // MARK: - Other Functions
-    private func showAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Неверный ввод данных", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-
     // MARK: - END
 }

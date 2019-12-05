@@ -43,6 +43,21 @@ class Player {
 
     private var _costValues: [Costs: Int] = [:]
 
+    static var samplePlayer: Player {
+        let player = Player()
+        player.name = "Bob"
+        player.gender = PlayerGender.male
+        player.profession = "Кладовщик"
+        player.salary = 500
+        player.setValue(100, for: .rent)//rentalCosts = 100
+        player.setValue(150, for: .food)//foodCosts = 150
+        player.setValue(20, for: .clothes)//clothesCosts = 20
+        player.setValue(20, for: .travel)//travelCosts = 20
+        player.setValue(10, for: .phone)//phoneCosts = 10
+
+        return player
+    }
+
     var allCosts: Int {
         return _costValues.values.reduce(0, +)
     }
@@ -54,15 +69,4 @@ class Player {
     func setValue(_ value: Int, for cost: Costs) {
         _costValues[cost] = value
     }
-
-    //    var rentalCosts: Int = 0
-    //    var foodCosts: Int = 0
-    //    var clothesCosts: Int = 0
-    //    var travelCosts: Int = 0
-    //    var phoneCosts: Int = 0
-    //    var apartmentCosts: Int = 0
-    //    var carCosts: Int = 0
-    //    var houseCosts: Int = 0
-    //    var yachtCosts: Int = 0
-    //    var aircraftCosts: Int = 0
 }

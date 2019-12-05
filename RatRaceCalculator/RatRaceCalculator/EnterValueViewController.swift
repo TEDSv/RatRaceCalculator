@@ -32,23 +32,14 @@ class EnterValueViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let text = textField.text, let value = Int(text) else {
-            showAlertMessage("Please enter valid data")
+            UIAlertController.showAlert(title: "Введены неверные значения",
+                                        message: "Введите цифры в текстовое поле",
+                                        from: self)
             return
         }
 
         enteredValue = value
-
         performSegue(withIdentifier: "unwindFromEnterValue", sender: nil)
     }
-
-    // MARK: - Other Functions
-    private func showAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Неверный ввод данных", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-
     // MARK: - END
 }

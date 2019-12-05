@@ -7,6 +7,7 @@
 //
 // MARK: - START
 import UIKit
+import Foundation
 
 // MARK: - #TODO
 // Запретить добавлять бизнес, инвестиции и покупки при минусовом счете
@@ -55,7 +56,7 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var bankruptButton: UIButton!
 
     // MARK: - Variables and Constants
-    var player = Player()
+    var player = Player.samplePlayer
     var totalCountOfBusiness: [Business] = []
     var funcOfEnterValueVC: String = ""
     var totalCountOfSalary: Int = 0
@@ -69,7 +70,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        loadSamplePlayer()
 
         namePlayerLabel.text = "Имя: \(player.name)"
         marriageDivorceButton.setTitle("Свадьба", for: .normal)
@@ -105,7 +105,9 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBAction func buyBusinessButtonTapped(_ sender: UIButton) {
         guard player.wallet > 299 else {
-            showAlertMessage("Не хватает денег на покупку бизнеса")
+            UIAlertController.showAlert(title: "Не хватает денег на покупку бизнеса",
+                                        message: "Нужно еще немного поработать :)",
+                                        from: self)
             return
         }
 
@@ -197,9 +199,9 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 
         laps = totalCountOfSalary / 4
+        player.passiveIncome = totalCountOfBusiness.map({$0.income}).reduce(0, +)
 
         hideUnusableButtons()
-        calculatePassiveIncome()
         player.totalIncome = player.salary + player.passiveIncome
         player.cashflow = player.totalIncome - player.allCosts
 
@@ -219,13 +221,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 assertionFailure("Unable to find enum with tag = \(costLabel.tag)")
             }
-        }
-    }
-
-    func calculatePassiveIncome() {
-        player.passiveIncome = 0
-        for business in totalCountOfBusiness {
-            player.passiveIncome += business.income
         }
     }
 
@@ -250,27 +245,6 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
                 childButton.isHidden = false
             }
         }
-    }
-
-    private func showAlertMessage(_ message: String) {
-        let alert = UIAlertController(title: "Неверный ввод данных", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-
-    // MARK: - PlayerLoad
-    func loadSamplePlayer() {
-        player.name = "Bob"
-        player.gender = PlayerGender.male
-        player.profession = "Кладовщик"
-        player.salary = 500
-        player.setValue(100, for: .rent)//rentalCosts = 100
-        player.setValue(150, for: .food)//foodCosts = 150
-        player.setValue(20, for: .clothes)//clothesCosts = 20
-        player.setValue(20, for: .travel)//travelCosts = 20
-        player.setValue(10, for: .phone)//phoneCosts = 10
     }
 
 // MARK: - Table view data source
@@ -332,6 +306,12 @@ class CalculatorViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 
         updateUI()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? AddBusinessViewController {
+            destination.playerWallet = player.wallet
+        }
     }
 
     // MARK: - END

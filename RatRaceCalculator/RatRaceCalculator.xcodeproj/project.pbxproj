@@ -21,6 +21,7 @@
 		8466F4A02387285B0016C6E7 /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F49F2387285B0016C6E7 /* BusinessTableViewCell.swift */; };
 		8466F4A4238C71900016C6E7 /* EnterValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466F4A3238C71900016C6E7 /* EnterValueViewController.swift */; };
 		84B8C391239853C600214B24 /* AddInvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8C390239853C600214B24 /* AddInvestmentsViewController.swift */; };
+		84B8C393239950F000214B24 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8C392239950F000214B24 /* ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8466F49F2387285B0016C6E7 /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		8466F4A3238C71900016C6E7 /* EnterValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterValueViewController.swift; sourceTree = "<group>"; };
 		84B8C390239853C600214B24 /* AddInvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvestmentsViewController.swift; sourceTree = "<group>"; };
+		84B8C392239950F000214B24 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				8466F45F2379F2F10016C6E7 /* AppDelegate.swift */,
 				8466F4612379F2F10016C6E7 /* SceneDelegate.swift */,
 				8466F4632379F2F10016C6E7 /* CalculatorViewController.swift */,
+				84B8C392239950F000214B24 /* ShowAlert.swift */,
 				84B8C390239853C600214B24 /* AddInvestmentsViewController.swift */,
 				8466F49F2387285B0016C6E7 /* BusinessTableViewCell.swift */,
 				8466F49D23848E5D0016C6E7 /* AddBusinessViewController.swift */,
@@ -305,6 +308,7 @@
 				8466F496238478AB0016C6E7 /* Business.swift in Sources */,
 				84B8C391239853C600214B24 /* AddInvestmentsViewController.swift in Sources */,
 				8466F49E23848E5D0016C6E7 /* AddBusinessViewController.swift in Sources */,
+				84B8C393239950F000214B24 /* ShowAlert.swift in Sources */,
 				8466F4A4238C71900016C6E7 /* EnterValueViewController.swift in Sources */,
 				8466F490237DD1620016C6E7 /* Player.swift in Sources */,
 			);
